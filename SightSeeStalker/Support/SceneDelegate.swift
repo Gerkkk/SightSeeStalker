@@ -13,12 +13,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = ViewController()
-        self.window = window
-        window.makeKeyAndVisible()
+//        window.rootViewController = CustomTabBarController()
+//        self.window = window
+//        window.makeKeyAndVisible()
+        
+        if AuthState.shared.isAuthenticated {
+            AuthRouter.showMainScreen()
+        } else {
+            guard let windowScene = (scene as? UIWindowScene) else { return }
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = AuthRouter.createAuthModule()
+            self.window = window
+            window.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
