@@ -46,14 +46,8 @@ final class PersonCell: UITableViewCell {
         tagView.textColor = UIColor.textSupporting
         tagView.font = UIFont.textTertiary
         
-        if person.avatar != nil {
-            let unencodedData = Data(base64Encoded: person.avatar!)
-            if unencodedData != nil {
-                let image = UIImage(data: unencodedData!)
-                
-                avatarView.image = image
-                avatarView.layer.cornerRadius = 30
-            }
+        if person.avatar! != "" {
+            avatarView.loadImage(from: "http://127.0.0.1:8000" + person.avatar!)
         }
     }
     
@@ -80,12 +74,12 @@ final class PersonCell: UITableViewCell {
         
         nameView.pinLeft(to: avatarView.trailingAnchor, 10)
         nameView.pinTop(to: customLabel.topAnchor, 10)
-        nameView.setWidth(100)
+        nameView.setWidth(320)
         nameView.setHeight(20)
         
         tagView.pinLeft(to: avatarView.trailingAnchor, 10)
         tagView.pinTop(to: nameView.bottomAnchor, 5)
-        tagView.setWidth(100)
+        tagView.setWidth(320)
         tagView.setHeight(20)
     }
 }

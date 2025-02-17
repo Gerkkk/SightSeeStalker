@@ -16,9 +16,10 @@ class HomeViewController: UIViewController {
 
         view.backgroundColor = UIColor.backgroundCol
         
-        view.addSubview(avatar)
-        avatar.pinCenterX(to: view.centerXAnchor)
-        avatar.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 0)
+//        view.addSubview(avatar)
+//        avatar.pinCenterX(to: view.centerXAnchor)
+//        avatar.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 0)
+        
     }
 
 

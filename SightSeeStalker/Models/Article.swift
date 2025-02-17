@@ -19,7 +19,7 @@ class ArticleModel: Decodable {
     var coordsW: Double?
     var brief: String?
     var text: String?
-    var images: [String?]?
+    var images: [String]?
     
     enum CodingKeys: String, CodingKey {
         case authorID = "author_id"
@@ -35,13 +35,13 @@ class ArticleModel: Decodable {
         case images = "images"
     }
     
-    init(authorID: Int? = nil, authorName: String? = nil, authorTag: String? = nil, authorAvatar: String? = nil, title: String? = nil, date: Date? = nil, coordsN: Double? = nil, coordsW: Double? = nil, brief: String? = nil, text: String? = nil, images: [String?]? = nil) {
+    init(authorID: Int? = nil, authorName: String? = nil, authorTag: String? = nil, authorAvatar: String? = nil, title: String? = nil, date: Double? = nil, coordsN: Double? = nil, coordsW: Double? = nil, brief: String? = nil, text: String? = nil, images: [String]? = nil) {
         self.authorID = authorID
         self.authorName = authorName
         self.authorTag = authorTag
         self.authorAvatar = authorAvatar
         self.title = title
-        self.date = date
+        self.date = Date(timeIntervalSince1970: date!)
         self.coordsN = coordsN
         self.coordsW = coordsW
         self.brief = brief

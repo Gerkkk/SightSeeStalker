@@ -26,18 +26,18 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, ToggleButton
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
         view.backgroundColor = UIColor.backgroundCol
         view.addSubview(textField)
         textField.pinCenterX(to: view.centerXAnchor)
-        textField.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 20)
+        textField.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
         textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         buttonsToggle.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttonsToggle)
         buttonsToggle.pinLeft(to: textField.leadingAnchor, 5)
-        buttonsToggle.pinTop(to: textField.bottomAnchor, 5)
+        buttonsToggle.pinTop(to: textField.bottomAnchor, 7)
         buttonsToggle.delegate = self
         buttonsToggle.buttonR.layoutIfNeeded()
         
@@ -49,10 +49,11 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, ToggleButton
         table.layer.cornerRadius = 20
         table.register(PersonCell.self, forCellReuseIdentifier: PersonCell.reuseId)
         table.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.reuseId)
-        //table.setHeight(500)
-        //table.setWidth(360)
         
-        table.pin(to: view, 180, 15)
+        table.pinTop(to: buttonsToggle.bottomAnchor, 5)
+        table.pinBottom(to: view.bottomAnchor)
+        table.pinLeft(to: view.leadingAnchor, 15)
+        table.pinRight(to: view.trailingAnchor)
         
         searchWithParams()
     }

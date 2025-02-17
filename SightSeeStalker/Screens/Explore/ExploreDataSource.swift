@@ -148,18 +148,19 @@ extension ExploreViewController: UITableViewDataSource {
 }
 
 extension ExploreViewController: UITableViewDelegate {
-//    private func handleMarkAsFavourite() {
-//        print("Marked as favourite")
-//    }
-//    
-//    func tableView(_ tableView: UITableView,
-//                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let action = UIContextualAction(style: .normal,
-//                                        title: "Share via VK") { [weak self] (action, view, completionHandler) in
-//                                            self?.handleMarkAsFavourite()
-//                                            completionHandler(true)
-//        }
-//
-//        return UISwipeActionsConfiguration(actions: [action])
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if buttonsToggle.isLeftButtonSelected {
+            let personViewController = PersonViewController(person: People[indexPath.row])
+            personViewController.personSelected = People[indexPath.row]
+            
+            navigationController?.pushViewController(personViewController, animated: true)
+        } else {
+            let articleViewController = ArticleViewController(article: Articles[indexPath.row])
+
+            
+            navigationController?.pushViewController(articleViewController, animated: true)
+        }
+    }
 }

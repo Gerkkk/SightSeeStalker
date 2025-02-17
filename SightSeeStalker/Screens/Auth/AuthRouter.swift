@@ -20,6 +20,7 @@ final class AuthRouter {
     static func showMainScreen() {
         guard let window = UIApplication.shared.windows.first else { return }
         let navController = CustomTabBarController()
+//        navController.tabBar.removeFromSuperview()
         window.rootViewController = navController
         window.makeKeyAndVisible()
     }

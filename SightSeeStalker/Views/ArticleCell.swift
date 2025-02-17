@@ -48,18 +48,16 @@ final class ArticleCell: UITableViewCell {
         tagView.text = "@" + article.authorTag!
         tagView.textColor = UIColor.textSupporting
         tagView.font = UIFont.textTertiary
+
         
-        if let base64String = article.authorAvatar,
-           let unencodedData = Data(base64Encoded: base64String) {
-            let image = UIImage(data: unencodedData)
-            avatarView.image = image
+        if let url = article.authorAvatar {
+            avatarView.loadImage(from: "http://127.0.0.1:8000" + url)
         }
         
-        if let images = article.images,
-           let base64String = images[0],
-           let unencodedData = Data(base64Encoded: base64String) {
-            let image = UIImage(data: unencodedData)
-            articleImageView.image = image
+        if let images = article.images {
+            if images.count > 0 {
+                articleImageView.loadImage(from: "http://127.0.0.1:8000" + images[0])
+            }
         }
         
         articleNameView.text = article.title!
@@ -72,7 +70,10 @@ final class ArticleCell: UITableViewCell {
         
         briefView.text = article.brief!
         briefView.textColor = UIColor.textMain
-        briefView.font = UIFont.textSecondary
+        briefView.font = UIFont.textTertiary
+        briefView.numberOfLines = 0
+        briefView.sizeToFit()
+        briefView.lineBreakMode = .byWordWrapping
     }
     
     private func configureUI() {
@@ -102,12 +103,12 @@ final class ArticleCell: UITableViewCell {
         
         nameView.pinLeft(to: avatarView.trailingAnchor, 10)
         nameView.pinTop(to: customLabel.topAnchor, 10)
-        nameView.setWidth(200)
+        nameView.setWidth(300)
         nameView.setHeight(20)
         
         tagView.pinLeft(to: avatarView.trailingAnchor, 10)
         tagView.pinTop(to: nameView.bottomAnchor, 5)
-        tagView.setWidth(200)
+        tagView.setWidth(300)
         tagView.setHeight(20)
         
         articleImageView.pinLeft(to: customLabel.leadingAnchor)
@@ -117,18 +118,19 @@ final class ArticleCell: UITableViewCell {
         
         articleNameView.pinLeft(to: customLabel.leadingAnchor, 10)
         articleNameView.pinTop(to: articleImageView.bottomAnchor, 5)
-        articleNameView.setWidth(200)
+        articleNameView.setWidth(320)
         articleNameView.setHeight(20)
         
         dateView.pinLeft(to: customLabel.leadingAnchor, 10)
         dateView.pinTop(to: articleNameView.bottomAnchor, 7)
-        dateView.setWidth(200)
+        dateView.setWidth(300)
         dateView.setHeight(20)
         
         briefView.pinLeft(to: customLabel.leadingAnchor, 10)
         briefView.pinTop(to: dateView.bottomAnchor, 7)
+//        briefView.pinBottom(to: customLabel.bottomAnchor)
         briefView.setWidth(360)
-        briefView.setHeight(40)
+    
     }
 }
 

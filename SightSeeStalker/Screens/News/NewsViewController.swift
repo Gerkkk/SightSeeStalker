@@ -24,16 +24,28 @@ class NewsViewController: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.fetchNews()
+        }
+    }
+    
     func configureUI() {
         view.backgroundColor = UIColor.backgroundCol
         
         view.addSubview(nameLabel)
         nameLabel.text = "Recent trips of authors you follow"
         nameLabel.pinCenterX(to: view.centerXAnchor)
-        nameLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 5)
+        nameLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
         
         view.addSubview(newsTable)
-        newsTable.pin(to: view, 100, 15)
+        
+        newsTable.pinTop(to: nameLabel.bottomAnchor, 3)
+        newsTable.pinBottom(to: view.bottomAnchor)
+        newsTable.pinLeft(to: view.leadingAnchor, 17)
+        newsTable.pinRight(to: view.trailingAnchor)
+        //newsTable.pin(to: view, 100, 15)
         newsTable.dataSource = self
         newsTable.delegate = self
         newsTable.backgroundColor = .clear
@@ -41,10 +53,7 @@ class NewsViewController: UIViewController {
         newsTable.rowHeight = 430
         newsTable.layer.cornerRadius = 20
         newsTable.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.reuseId)
-        
-        fetchNews()
     }
-
-
 }
+
 

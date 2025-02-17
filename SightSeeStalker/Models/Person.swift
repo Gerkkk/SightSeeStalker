@@ -25,6 +25,16 @@ class PersonModel: Decodable {
         self.followersNum = followersNum
         self.avatar = nil
     }
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case tag = "tag"
+        case status = "status"
+        case follows = "follows"
+        case followersNum = "followers_num"
+        case avatar = "avatar"
+    }
 }
 
 class PeopleModel: Decodable {

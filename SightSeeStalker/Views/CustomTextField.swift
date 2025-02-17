@@ -75,8 +75,11 @@ final class CustomTextField: UITextField {
         self.setWidth(Constants.width)
         self.font = UIFont.textPrimary
         self.textColor = UIColor.textSupporting
-        self.placeholder = initText
-        self.tintColor = UIColor.textSupporting
+        
+        self.attributedPlaceholder = NSAttributedString(
+            string: initText,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.textSupporting]
+        )
         
         self.layer.borderColor = UIColor.viewEdging.cgColor
         self.layer.borderWidth = Constants.strokeWidth

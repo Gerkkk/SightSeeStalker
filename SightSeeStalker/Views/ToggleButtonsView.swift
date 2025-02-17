@@ -79,7 +79,7 @@ final class ToggleButtonsView: UIView {
         buttonR.pinBottom(to: self.bottomAnchor)
         
         configureButton(button: buttonL, title: titleL, image: imageLChosen, color: UIColor.customGreen, tintColor: UIColor.iconNotChosen, addStroke: false)
-        configureButton(button: buttonR, title: titleR, image: imageRNotChosen, color: UIColor.backgroundCol, tintColor: UIColor.customGreen, addStroke: true)
+        configureButton(button: buttonR, title: titleR, image: imageRNotChosen, color: .clear, tintColor: UIColor.customGreen, addStroke: true)
     }
     
     private func configureButton(button: UIButton, title: String, image: UIImage, color: UIColor, tintColor: UIColor, addStroke: Bool) {
@@ -95,7 +95,7 @@ final class ToggleButtonsView: UIView {
         let label = UILabel()
         label.text = title
         label.textColor = tintColor
-        label.font = UIFont.textPrimary
+        label.font = UIFont.textTertiary
         
         let stackView = UIStackView(arrangedSubviews: [iconView, label])
         stackView.axis = .horizontal
@@ -128,7 +128,7 @@ final class ToggleButtonsView: UIView {
 
     private func updateButtonState(selectedButton: UIButton, deselectedButton: UIButton, selectedIcon: UIImage, deselectedIcon: UIImage) {
         selectedButton.backgroundColor = UIColor.customGreen
-        deselectedButton.backgroundColor = UIColor.backgroundCol
+        deselectedButton.backgroundColor = .clear
         
         selectedButton.tintColor = UIColor.iconNotChosen
         deselectedButton.tintColor = UIColor.customGreen

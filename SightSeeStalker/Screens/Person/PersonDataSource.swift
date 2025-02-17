@@ -1,16 +1,13 @@
 //
-//  NewsDataSource.swift
+//  PersonDataSource.swift
 //  SightSeeStalker
 //
-//  Created by Danya Polyakov on 09.02.2025.
+//  Created by Danya Polyakov on 15.02.2025.
 //
 
-import Foundation
 import UIKit
-import Darwin
 
-// MARK: - UITableViewDataSource
-extension NewsViewController: UITableViewDataSource {
+extension PersonViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Articles.count
     }
@@ -33,18 +30,17 @@ extension NewsViewController: UITableViewDataSource {
     }
     
     private func getURL() -> URL? {
-        URL(string: "http://127.0.0.1:8000/user-actions/fetch-news")
+        URL(string: "http://127.0.0.1:8000/user-actions/get-user-posts")
     }
     
-    internal func fetchNews() {
+    public func getUserPosts() {
         guard let url = getURL() else { return }
         
         let parameters: [String: Any] = [
-            "user_id": 0, //TODO: Fix user_id
-            "page_size": 10,
-            "page_num": 0
+            "id": personSelected?.id ?? -1
         ]
         
+
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
         
         var request = URLRequest(url: url)
@@ -63,11 +59,16 @@ extension NewsViewController: UITableViewDataSource {
                 do {
                     let decoder = JSONDecoder()
                     var articlesPage: ArticlesModel?
-
+                    
                     articlesPage = try decoder.decode(ArticlesModel.self, from: data)
                     DispatchQueue.main.async {
                         self?.Articles = articlesPage?.articles ?? []
-                        self?.newsTable.reloadData()
+                        self?.postsTable.reloadData()
+                        self?.viewDidLayoutSubviews()
+                        self?.view.setNeedsLayout()
+                        self?.view.layoutIfNeeded()
+                        
+                
                     }
                 } catch {
                     print("Error decoding response: \(error)")
@@ -79,20 +80,10 @@ extension NewsViewController: UITableViewDataSource {
     }
 }
 
-extension NewsViewController: UITableViewDelegate {
-//    private func handleMarkAsFavourite() {
-//        print("Marked as favourite")
-//    }
-//
-//    func tableView(_ tableView: UITableView,
-//                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let action = UIContextualAction(style: .normal,
-//                                        title: "Share via VK") { [weak self] (action, view, completionHandler) in
-//                                            self?.handleMarkAsFavourite()
-//                                            completionHandler(true)
-//        }
-//
-//        return UISwipeActionsConfiguration(actions: [action])
-//    }
+extension PersonViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let articleViewController = ArticleViewController(article: Articles[indexPath.row])
+        navigationController?.pushViewController(articleViewController, animated: true)
+    }
 }
-
