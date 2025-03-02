@@ -78,7 +78,8 @@ class CustomTabBarController: UITabBarController {
         let vcNews = NewsViewController()
         let vcExplore = ExploreViewController()
         let vcMap = MapViewController()
-        let vcHome = HomeViewController()
+        //TODO: id from keychain'
+        let vcHome = HomeViewController(person: PersonModel(id: 0, name: "", tag: "", status: "", follows: [], followersNum: 0, avatar: nil))
         
         vcNews.tabBarItem = UITabBarItem(title: "News", image: UIImage(named: "News"), tag: 0)
         vcExplore.tabBarItem = UITabBarItem(title: "Explore", image: UIImage(named: "MagGlass"), tag: 1)

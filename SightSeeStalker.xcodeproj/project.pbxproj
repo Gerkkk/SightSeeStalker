@@ -46,6 +46,11 @@
 		C7FB29702D60FCB40095DF7C /* PersonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB296F2D60FCB40095DF7C /* PersonDataSource.swift */; };
 		C7FB29722D631BDC0095DF7C /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29712D631BDC0095DF7C /* UIImageView+.swift */; };
 		C7FB29742D6364E90095DF7C /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29732D6364E80095DF7C /* MapViewDelegate.swift */; };
+		C7FB29772D6A25B20095DF7C /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29762D6A25B20095DF7C /* HomeDataSource.swift */; };
+		C7FB29792D6F09480095DF7C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29782D6F09480095DF7C /* CustomAnnotation.swift */; };
+		C7FB297F2D6F2DC60095DF7C /* NewArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB297E2D6F2DC60095DF7C /* NewArticleViewController.swift */; };
+		C7FB29812D6F2DD60095DF7C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29802D6F2DD60095DF7C /* SettingsViewController.swift */; };
+		C7FB29842D746D980095DF7C /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29832D746D980095DF7C /* Configs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +94,11 @@
 		C7FB296F2D60FCB40095DF7C /* PersonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataSource.swift; sourceTree = "<group>"; };
 		C7FB29712D631BDC0095DF7C /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		C7FB29732D6364E80095DF7C /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		C7FB29762D6A25B20095DF7C /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
+		C7FB29782D6F09480095DF7C /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		C7FB297E2D6F2DC60095DF7C /* NewArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleViewController.swift; sourceTree = "<group>"; };
+		C7FB29802D6F2DD60095DF7C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C7FB29832D746D980095DF7C /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,7 @@
 		C7FB290C2D3D8CCD0095DF7C /* SightSeeStalker */ = {
 			isa = PBXGroup;
 			children = (
+				C7FB29822D746D7F0095DF7C /* Configs */,
 				C7FB295B2D54FB2D0095DF7C /* Support */,
 				C7FB29462D3FA1590095DF7C /* Models */,
 				C7FB29372D3F7D560095DF7C /* Screens */,
@@ -176,6 +187,8 @@
 		C7FB29372D3F7D560095DF7C /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C7FB297D2D6F2D190095DF7C /* NewArticle */,
+				C7FB297A2D6F2CF30095DF7C /* Settings */,
 				C7FB296A2D59DDE50095DF7C /* Article */,
 				C7FB29672D59D8930095DF7C /* Person */,
 				C7FB29502D54F9860095DF7C /* Auth */,
@@ -210,6 +223,7 @@
 			children = (
 				C7FB293E2D3F7FAE0095DF7C /* MapViewController.swift */,
 				C7FB29732D6364E80095DF7C /* MapViewDelegate.swift */,
+				C7FB29782D6F09480095DF7C /* CustomAnnotation.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -218,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				C7FB293C2D3F7EFC0095DF7C /* HomeViewController.swift */,
+				C7FB29762D6A25B20095DF7C /* HomeDataSource.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -267,6 +282,30 @@
 				C7FB296B2D59DDFA0095DF7C /* ArticleViewController.swift */,
 			);
 			path = Article;
+			sourceTree = "<group>";
+		};
+		C7FB297A2D6F2CF30095DF7C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C7FB29802D6F2DD60095DF7C /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C7FB297D2D6F2D190095DF7C /* NewArticle */ = {
+			isa = PBXGroup;
+			children = (
+				C7FB297E2D6F2DC60095DF7C /* NewArticleViewController.swift */,
+			);
+			path = NewArticle;
+			sourceTree = "<group>";
+		};
+		C7FB29822D746D7F0095DF7C /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				C7FB29832D746D980095DF7C /* Configs.swift */,
+			);
+			path = Configs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,12 +391,16 @@
 				C7FB29742D6364E90095DF7C /* MapViewDelegate.swift in Sources */,
 				C7FB29362D3F695C0095DF7C /* CustomSegmentedView.swift in Sources */,
 				C7FB29642D58F18D0095DF7C /* NewsDataSource.swift in Sources */,
+				C7FB29812D6F2DD60095DF7C /* SettingsViewController.swift in Sources */,
 				C7FB29562D54F9CA0095DF7C /* AuthInteractor.swift in Sources */,
 				C7FB29272D3E291E0095DF7C /* UIView+Pin.swift in Sources */,
 				C7FB294C2D3FD43B0095DF7C /* PersonCell.swift in Sources */,
 				C7FB29662D58FDAB0095DF7C /* ImageCarouselView.swift in Sources */,
 				C7FB294A2D3FA3750095DF7C /* Article.swift in Sources */,
+				C7FB297F2D6F2DC60095DF7C /* NewArticleViewController.swift in Sources */,
 				C7FB29432D3F82220095DF7C /* CustomTabBarController.swift in Sources */,
+				C7FB29792D6F09480095DF7C /* CustomAnnotation.swift in Sources */,
+				C7FB29842D746D980095DF7C /* Configs.swift in Sources */,
 				C7FB29122D3D8CCD0095DF7C /* ExploreViewController.swift in Sources */,
 				C7FB296C2D59DDFA0095DF7C /* ArticleViewController.swift in Sources */,
 				C7FB29722D631BDC0095DF7C /* UIImageView+.swift in Sources */,
@@ -377,6 +420,7 @@
 				C7FB29482D3FA1670095DF7C /* Person.swift in Sources */,
 				C7FB29342D3E74290095DF7C /* CustomImageView.swift in Sources */,
 				C7FB29692D59D8AC0095DF7C /* PersonViewController.swift in Sources */,
+				C7FB29772D6A25B20095DF7C /* HomeDataSource.swift in Sources */,
 				C7FB29622D58A8D90095DF7C /* ArticleCell.swift in Sources */,
 				C7FB295A2D54F9F10095DF7C /* AuthRouter.swift in Sources */,
 				C7FB293D2D3F7EFC0095DF7C /* HomeViewController.swift in Sources */,

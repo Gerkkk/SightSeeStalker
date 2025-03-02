@@ -14,23 +14,34 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
 
-        let identifier = "customPin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        let identifier = "CustomAnnotationView"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? CustomAnnotationView
 
         if annotationView == nil {
-            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView = CustomAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-            annotationView?.markerTintColor = UIColor.customGreen
-            annotationView?.glyphText = "S"
-            annotationView?.tintColor = UIColor.textSupporting
         } else {
             annotationView?.annotation = annotation
             annotationView?.canShowCallout = true
-            annotationView?.markerTintColor = UIColor.customGreen
-            annotationView?.glyphText = "S"
-            annotationView?.tintColor = UIColor.textSupporting
         }
 
         return annotationView
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect annotationView: MKAnnotationView) {
+        if let customAnnotationView = annotationView as? CustomAnnotationView {
+            customAnnotationView.isSelected = true
+            customAnnotationView.layoutSubviews() // Принудительная перерисовка
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect annotationView: MKAnnotationView) {
+        if let customAnnotationView = annotationView as? CustomAnnotationView {
+            customAnnotationView.isSelected = false
+            customAnnotationView.layoutSubviews()
+        }
+    }
+
+
+
 }

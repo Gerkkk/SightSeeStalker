@@ -37,6 +37,14 @@ class PersonModel: Decodable {
     }
 }
 
+class PersonResponse: Decodable {
+    let user: PersonModel
+    
+    init(user: PersonModel) {
+        self.user = user
+    }
+}
+
 class PeopleModel: Decodable {
     var people: [PersonModel]
     
