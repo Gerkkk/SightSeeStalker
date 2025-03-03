@@ -7,26 +7,18 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController, UITextFieldDelegate, ToggleButtonsViewDelegate {
-    var textField: CustomTextField = CustomTextField(initText: "Enter text")
-//    var avatar: CustomImageView = CustomImageView(radius: 50, image: nil)
-//    var buttons: CustomSegmentedView = CustomSegmentedView(data: ["places", "people"], images: [UIImage(named: "Person")!, UIImage(named: "Location")!])
-    
-    var buttonsToggle: ToggleButtonsView = ToggleButtonsView(titleL: "Authors", imageLChosen: UIImage(named: "Check")!, imageLNotChosen: UIImage(named: "Person")!, titleR: "Places", imageRChosen: UIImage(named: "Check")!, imageRNotChosen: UIImage(named: "Location")!, imagePadding: 10)
-    
-    var table: UITableView = UITableView()
-    
-//    var People: [PersonModel] = [PersonModel(id: 0, name: "Alex", tag: "@lol", status: "Im blue", follows: [], followersNum: 10, avatar: nil),
-//        PersonModel(id: 1, name: "Bob", tag: "@lol1", status: "Im green", follows: [], followersNum: 2, avatar: nil),
-//        PersonModel(id: 0, name: "Alex", tag: "@lol2", status: "Im blue", follows: [], followersNum: 10, avatar: UIImage(named: "News"))
-//    ]
-    
+class ExploreViewController: UIViewController, ExploreViewProtocol, UITextFieldDelegate, ToggleButtonsViewDelegate {
     var People: [PersonModel] = []
     var Articles: [ArticleModel] = []
+    var presenter: ExplorePresenterProtocol?
+    
+    var textField: CustomTextField = CustomTextField(initText: "Enter text")
+    var buttonsToggle: ToggleButtonsView = ToggleButtonsView(titleL: "Authors", imageLChosen: UIImage(named: "Check")!, imageLNotChosen: UIImage(named: "Person")!, titleR: "Places", imageRChosen: UIImage(named: "Check")!, imageRNotChosen: UIImage(named: "Location")!, imagePadding: 10)
+    var table: UITableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = UIColor.backgroundCol
         view.addSubview(textField)
         textField.pinCenterX(to: view.centerXAnchor)
@@ -39,7 +31,6 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, ToggleButton
         buttonsToggle.pinLeft(to: textField.leadingAnchor, 5)
         buttonsToggle.pinTop(to: textField.bottomAnchor, 7)
         buttonsToggle.delegate = self
-        buttonsToggle.buttonR.layoutIfNeeded()
         
         view.addSubview(table)
         table.dataSource = self
@@ -49,25 +40,40 @@ class ExploreViewController: UIViewController, UITextFieldDelegate, ToggleButton
         table.layer.cornerRadius = 20
         table.register(PersonCell.self, forCellReuseIdentifier: PersonCell.reuseId)
         table.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.reuseId)
-        
         table.pinTop(to: buttonsToggle.bottomAnchor, 5)
         table.pinBottom(to: view.bottomAnchor)
         table.pinLeft(to: view.leadingAnchor, 15)
         table.pinRight(to: view.trailingAnchor)
         
-        searchWithParams()
+        presenter?.viewDidLoad()
     }
 
     @objc func textFieldDidChange(_ textField: UITextField) {
-        searchWithParams()
+        presenter?.searchWithParams(query: textField.text ?? "", searchType: buttonsToggle.isLeftButtonSelected ? 0 : 1)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        searchWithParams()
+        presenter?.searchWithParams(query: textField.text ?? "", searchType: buttonsToggle.isLeftButtonSelected ? 0 : 1)
     }
     
     func didChangeSelectedButton(isLeftButtonSelected: Bool) {
-        searchWithParams()
+        presenter?.searchWithParams(query: textField.text ?? "", searchType: buttonsToggle.isLeftButtonSelected ? 0 : 1)
+    }
+    
+    func setResults(articles: [ArticleModel], people: [PersonModel]) {
+        self.Articles = articles
+        self.People = people
+    }
+    
+    func reloadData() {
+        table.reloadData()
+    }
+    
+    func setError(_ error: any Error) {
+        print("Error" + error.localizedDescription)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
-

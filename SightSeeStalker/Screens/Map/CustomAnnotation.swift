@@ -26,7 +26,7 @@ class CustomAnnotationView: MKAnnotationView {
     
     private func setupView() {
         frame = CGRect(x: 0, y: 0, width: 75, height: 75)
-        centerOffset = CGPoint(x: 0, y: 0) // Чтобы точка была над координатой
+        centerOffset = CGPoint(x: 0, y: 0)
         
 
         dotView.frame = CGRect(x: 34, y: 34, width: 7, height: 7)
@@ -58,8 +58,8 @@ class CustomAnnotationView: MKAnnotationView {
         gradientMaskLayer.path = horizontalLinesLayer.path
         
         gradientLayer.mask = gradientMaskLayer
-        gradientLayer.frame = bounds // Чтобы градиент соответствовал размеру аннотации
-        layer.addSublayer(gradientLayer) // Добавляем градиент как слой
+        gradientLayer.frame = bounds
+        layer.addSublayer(gradientLayer)
     }
 
     

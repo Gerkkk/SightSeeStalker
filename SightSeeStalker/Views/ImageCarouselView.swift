@@ -29,7 +29,6 @@ class ImageCarouselView: UIView, UIScrollViewDelegate {
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.delegate = self
         addSubview(scrollView)
-
         pageControl.numberOfPages = images.count
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = UIColor.textSupporting
@@ -38,13 +37,14 @@ class ImageCarouselView: UIView, UIScrollViewDelegate {
 
         setupImages()
     }
-
+    
     private func setupImages() {
         for (index, url) in images.enumerated() {
             let imageView = UIImageView()
             imageView.loadImage(from: "http://127.0.0.1:8000" + url)
-            imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
+            imageView.layer.cornerRadius = 30
             scrollView.addSubview(imageView)
             
             imageView.frame = CGRect(

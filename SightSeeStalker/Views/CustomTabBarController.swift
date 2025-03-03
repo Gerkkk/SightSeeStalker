@@ -7,61 +7,6 @@
 
 import UIKit
 
-//class CustomTabBarController: UITabBarController {
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        configureTabs()
-//    }
-//    
-//    private func configureTabs (){
-//        let vcNews = NewsViewController()
-//        let vcExplore = ExploreViewController()
-//        let vcMap = MapViewController()
-//        let vcHome = HomeViewController()
-//        
-//        
-//        vcNews.tabBarItem.image = UIImage(named: "News")
-//        vcExplore.tabBarItem.image = UIImage(named: "MagGlass")
-//        vcMap.tabBarItem.image = UIImage(named: "Earth")
-//        vcHome.tabBarItem.image = UIImage(named: "Person")
-//        
-//        vcNews.title = "News"
-//        vcExplore.title = "Explore"
-//        vcMap.title = "Map"
-//        vcHome.title = "Home"
-//        
-//        
-//       // vcNews.tabBarItem.
-//        
-//        let navNews = UINavigationController(rootViewController: vcNews)
-//        navNews.hidesBottomBarWhenPushed = true
-//        navNews.isNavigationBarHidden = true
-//        let navExplore = UINavigationController(rootViewController: vcExplore)
-//        navExplore.hidesBottomBarWhenPushed = true
-//        navExplore.isNavigationBarHidden = true
-//        let navMap = UINavigationController(rootViewController: vcMap)
-//        navMap.hidesBottomBarWhenPushed = true
-//        navMap.isNavigationBarHidden = true
-//        let navHome = UINavigationController(rootViewController: vcHome)
-//        navHome.isNavigationBarHidden = true
-//        navHome.hidesBottomBarWhenPushed = true
-//        
-//        tabBar.unselectedItemTintColor = UIColor.iconNotChosen
-//        tabBar.tintColor = UIColor.customGreen
-//        tabBar.backgroundColor = UIColor.viewColor
-//        
-//        
-//        self.tabBar.layer.cornerRadius = 50
-//        self.tabBar.layer.borderWidth = 1
-//        self.tabBar.layer.borderColor = UIColor.viewEdging.cgColor
-//        
-//
-//        
-//        self.setViewControllers([navNews, navExplore, navMap, navHome], animated: true)
-//    }
-//}
-
-
 class CustomTabBarController: UITabBarController {
     
     private let floatingTabBar = UITabBar()
@@ -75,11 +20,10 @@ class CustomTabBarController: UITabBarController {
     }
     
     private func setupTabs() {
-        let vcNews = NewsViewController()
-        let vcExplore = ExploreViewController()
-        let vcMap = MapViewController()
-        //TODO: id from keychain'
-        let vcHome = HomeViewController(person: PersonModel(id: 0, name: "", tag: "", status: "", follows: [], followersNum: 0, avatar: nil))
+        let vcNews = NewsAssembly.build()
+        let vcExplore = ExploreAssembly.build()
+        let vcMap = MapAssembly.build()
+        let vcHome = HomeAssembly.build()
         
         vcNews.tabBarItem = UITabBarItem(title: "News", image: UIImage(named: "News"), tag: 0)
         vcExplore.tabBarItem = UITabBarItem(title: "Explore", image: UIImage(named: "MagGlass"), tag: 1)

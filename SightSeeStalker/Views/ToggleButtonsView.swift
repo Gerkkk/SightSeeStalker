@@ -100,7 +100,7 @@ final class ToggleButtonsView: UIView {
         let stackView = UIStackView(arrangedSubviews: [iconView, label])
         stackView.axis = .horizontal
         stackView.spacing = imagePadding
-        stackView.alignment = .center
+        stackView.alignment = .fill
         stackView.isUserInteractionEnabled = false
         
         button.addSubview(stackView)

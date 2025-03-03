@@ -40,7 +40,5 @@ final class CustomSegmentedView: UISegmentedControl {
         
         self.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.textTertiary as Any,
             NSAttributedString.Key.foregroundColor: UIColor.customGreen as Any], for: UIControl.State.normal)
-        
-        
     }
 }

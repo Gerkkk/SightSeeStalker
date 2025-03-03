@@ -18,7 +18,6 @@ final class AuthInteractor: AuthInteractorProtocol {
     private let keychain = KeychainSwift()
     
     func login(email: String, password: String, completion: @escaping (Bool, String?) -> Void) {
-        // Пример запроса (в реальном приложении заменить на API)
         DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
             if email == "" && password == "" {
                 let token = "mock_jwt_token_123"

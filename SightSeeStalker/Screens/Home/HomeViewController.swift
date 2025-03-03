@@ -8,21 +8,8 @@
 import UIKit
 
 final class HomeViewController: UIViewController {
-    public var personSelected: PersonModel
-    var isUserInfoLoaded = false
-    
-    //TODO: ID from keychain
-    init(person: PersonModel) {
-        personSelected = person
-        super.init(nibName: nil, bundle: nil)
-        self.getUserInfo(id: personSelected.id ?? -1)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    public var Articles: [ArticleModel] = []
+    private var articles: [ArticleModel] = []
+    var presenter: HomePresenterProtocol!
     
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -93,23 +80,25 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    public var postsTable: UITableView = {
-        var table = UITableView()
+    private var postsTable: UITableView = {
+        let table = UITableView()
         table.backgroundColor = .clear
         table.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.reuseId)
-        table.isScrollEnabled = true
+        table.isScrollEnabled = false
         table.separatorStyle = .none
         table.rowHeight = 430
         table.layer.cornerRadius = 20
-        
         return table
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = UIColor.backgroundCol
-        
+        setupUI()
+        presenter.viewDidLoad()
+    }
+    
+    private func setupUI() {
         view.addSubview(scrollView)
         scrollView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
         scrollView.pinBottom(to: view.bottomAnchor)
@@ -119,10 +108,6 @@ final class HomeViewController: UIViewController {
         scrollView.addSubview(avatarView)
         avatarView.pinTop(to: scrollView.topAnchor, 5)
         avatarView.pinCenterX(to: scrollView)
-        
-        if personSelected.avatar != nil {
-            avatarView.loadImage(from: "http://127.0.0.1:8000" + (personSelected.avatar!))
-        }
         
         scrollView.addSubview(settingsButton)
         settingsButton.pinRight(to: scrollView.trailingAnchor, 5)
@@ -139,12 +124,10 @@ final class HomeViewController: UIViewController {
         newArticleButton.addTarget(self, action: #selector(newArticleButtonTapped), for: .touchUpInside)
         
         scrollView.addSubview(nameLabel)
-        nameLabel.text = personSelected.name
         nameLabel.pinTop(to: avatarView.bottomAnchor, 5)
         nameLabel.pinCenterX(to: scrollView)
         
         scrollView.addSubview(tagLabel)
-        tagLabel.text = "@" + (personSelected.tag ?? "")
         tagLabel.pinTop(to: nameLabel.bottomAnchor, 3)
         tagLabel.pinCenterX(to: scrollView)
         
@@ -157,8 +140,6 @@ final class HomeViewController: UIViewController {
         statusLabel.lineBreakMode = .byWordWrapping
         statusLabel.pinLeft(to: scrollView.leadingAnchor, 5)
         statusLabel.pinRight(to: scrollView.trailingAnchor, 5)
-        statusLabel.text = personSelected.status
-        
         
         scrollView.addSubview(buttonFollow)
         buttonFollow.pinRight(to: scrollView.trailingAnchor, 10)
@@ -168,7 +149,6 @@ final class HomeViewController: UIViewController {
         buttonFollow.setWidth(25)
         
         scrollView.addSubview(followersCountLabel)
-        followersCountLabel.text = String(personSelected.followersNum ?? 0) + " FOLLOWERS"
         followersCountLabel.pinRight(to: buttonFollow.leadingAnchor, 5)
         followersCountLabel.pinTop(to: statusLabel.bottomAnchor, 5)
         
@@ -176,40 +156,68 @@ final class HomeViewController: UIViewController {
         postsTable.dataSource = self
         postsTable.delegate = self
         postsTable.translatesAutoresizingMaskIntoConstraints = false
-//        postsTable.pin(to: scrollView, 15, 15)
         postsTable.pinTop(to: followersCountLabel.bottomAnchor, 3)
-        //postsTable.pinBottom(to: scrollView.bottomAnchor)
-        postsTable.pinLeft(to: scrollView.leadingAnchor, 17)
-        postsTable.pinRight(to: scrollView.trailingAnchor)
+        postsTable.pinLeft(to: view.leadingAnchor, 17)
+        postsTable.pinRight(to: view.trailingAnchor)
+        postsTable.pinBottom(to: view.bottomAnchor)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         postsTable.layoutIfNeeded()
-        
         let tableHeight = postsTable.contentSize.height
-
-        let totalHeight = followersCountLabel.frame.maxY + tableHeight + 20
-        
-       // postsTable.setHeight(tableHeight)
-        //print("tableHeight:", tableHeight)
-        //print("followersCountLabel maxY:", followersCountLabel.frame.maxY)
-        //print("scrollView frame:", scrollView.frame)
-        //print("Calculated contentSize height:", totalHeight)
-
-        scrollView.contentSize = CGSize(
-            width: scrollView.frame.width,
-            height: totalHeight
-        )
+        let totalHeight = followersCountLabel.frame.maxY + tableHeight + 70
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: totalHeight)
     }
     
     @objc func newArticleButtonTapped() {
-        let newArticleViewController = NewArticleViewController()
-        navigationController?.pushViewController(newArticleViewController, animated: true)
+        presenter.newArticleButtonTapped()
     }
     
     @objc func settingsButtonTapped() {
-        let settingsViewController = SettingsViewController()
-        navigationController?.pushViewController(settingsViewController, animated: true)
+        presenter.settingsButtonTapped()
+    }
+}
+
+extension HomeViewController: HomeViewProtocol {
+    func showUserInfo(_ user: PersonModel) {
+        nameLabel.text = user.name
+        tagLabel.text = "@" + (user.tag ?? "")
+        statusLabel.text = user.status
+        followersCountLabel.text = "\(user.followersNum ?? 0) FOLLOWERS"
+        
+        if let avatar = user.avatar {
+            avatarView.loadImage(from: "http://127.0.0.1:8000" + avatar)
+        }
+    }
+    
+    func showArticles(_ articles: [ArticleModel]) {
+        self.articles = articles
+        postsTable.reloadData()
+        viewDidLayoutSubviews()
+    }
+    
+    func showError(message: String) {
+        print("Error: " + message)
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return articles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCell.reuseId, for: indexPath)
+        guard let articleCell = cell as? ArticleCell else { return cell }
+        articleCell.configure(with: articles[indexPath.row])
+        return articleCell
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        presenter.didSelectArticle(article: articles[indexPath.row])
     }
 }

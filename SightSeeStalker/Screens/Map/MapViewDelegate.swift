@@ -41,7 +41,4 @@ extension MapViewController: MKMapViewDelegate {
             customAnnotationView.layoutSubviews()
         }
     }
-
-
-
 }

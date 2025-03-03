@@ -38,19 +38,45 @@
 		C7FB295E2D54FCC50095DF7C /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C7FB295D2D54FCC50095DF7C /* KeychainSwift */; };
 		C7FB29602D55148D0095DF7C /* ToggleButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB295F2D55148D0095DF7C /* ToggleButtonsView.swift */; };
 		C7FB29622D58A8D90095DF7C /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29612D58A8D80095DF7C /* ArticleCell.swift */; };
-		C7FB29642D58F18D0095DF7C /* NewsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29632D58F18D0095DF7C /* NewsDataSource.swift */; };
 		C7FB29662D58FDAB0095DF7C /* ImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29652D58FDAB0095DF7C /* ImageCarouselView.swift */; };
 		C7FB29692D59D8AC0095DF7C /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29682D59D8AC0095DF7C /* PersonViewController.swift */; };
 		C7FB296C2D59DDFA0095DF7C /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB296B2D59DDFA0095DF7C /* ArticleViewController.swift */; };
 		C7FB296E2D609BAA0095DF7C /* Sora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7FB296D2D609BAA0095DF7C /* Sora-Regular.ttf */; };
-		C7FB29702D60FCB40095DF7C /* PersonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB296F2D60FCB40095DF7C /* PersonDataSource.swift */; };
 		C7FB29722D631BDC0095DF7C /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29712D631BDC0095DF7C /* UIImageView+.swift */; };
 		C7FB29742D6364E90095DF7C /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29732D6364E80095DF7C /* MapViewDelegate.swift */; };
-		C7FB29772D6A25B20095DF7C /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29762D6A25B20095DF7C /* HomeDataSource.swift */; };
 		C7FB29792D6F09480095DF7C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29782D6F09480095DF7C /* CustomAnnotation.swift */; };
 		C7FB297F2D6F2DC60095DF7C /* NewArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB297E2D6F2DC60095DF7C /* NewArticleViewController.swift */; };
 		C7FB29812D6F2DD60095DF7C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29802D6F2DD60095DF7C /* SettingsViewController.swift */; };
 		C7FB29842D746D980095DF7C /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29832D746D980095DF7C /* Configs.swift */; };
+		C7FB29862D7475850095DF7C /* PersonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29852D7475850095DF7C /* PersonRouter.swift */; };
+		C7FB29882D7476190095DF7C /* PersonPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29872D7476190095DF7C /* PersonPresenter.swift */; };
+		C7FB298A2D7476480095DF7C /* PersonInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29892D7476480095DF7C /* PersonInteractor.swift */; };
+		C7FB298C2D7476800095DF7C /* PersonWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB298B2D7476800095DF7C /* PersonWorker.swift */; };
+		C7FB298E2D7476E40095DF7C /* PersonAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB298D2D7476E40095DF7C /* PersonAssembly.swift */; };
+		C7FB29902D7486540095DF7C /* NewsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB298F2D7486540095DF7C /* NewsProtocols.swift */; };
+		C7FB29922D7486600095DF7C /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29912D7486600095DF7C /* NewsPresenter.swift */; };
+		C7FB29942D74866C0095DF7C /* NewsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29932D74866C0095DF7C /* NewsWorker.swift */; };
+		C7FB29962D74867E0095DF7C /* NewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29952D74867E0095DF7C /* NewsInteractor.swift */; };
+		C7FB29982D74868A0095DF7C /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29972D74868A0095DF7C /* NewsRouter.swift */; };
+		C7FB299A2D74874B0095DF7C /* NewsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29992D74874B0095DF7C /* NewsAssembly.swift */; };
+		C7FB299C2D74AA9C0095DF7C /* MapProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB299B2D74AA9C0095DF7C /* MapProtocols.swift */; };
+		C7FB299E2D74AAC40095DF7C /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB299D2D74AAC40095DF7C /* MapPresenter.swift */; };
+		C7FB29A02D74AACF0095DF7C /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB299F2D74AACF0095DF7C /* MapInteractor.swift */; };
+		C7FB29A22D74AB0B0095DF7C /* MapWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29A12D74AB0B0095DF7C /* MapWorker.swift */; };
+		C7FB29A42D74ABC90095DF7C /* MapAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29A32D74ABC80095DF7C /* MapAssembly.swift */; };
+		C7FB29A62D74B28E0095DF7C /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29A52D74B28E0095DF7C /* HomeProtocols.swift */; };
+		C7FB29A82D74B29E0095DF7C /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29A72D74B29D0095DF7C /* HomePresenter.swift */; };
+		C7FB29AC2D74B2E30095DF7C /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29AB2D74B2E30095DF7C /* HomeInteractor.swift */; };
+		C7FB29AE2D74B34D0095DF7C /* HomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29AD2D74B34D0095DF7C /* HomeAssembly.swift */; };
+		C7FB29B02D74B5840095DF7C /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29AF2D74B5840095DF7C /* HomeWorker.swift */; };
+		C7FB29B22D74B90F0095DF7C /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29B12D74B90F0095DF7C /* HomeRouter.swift */; };
+		C7FB29B42D74C25E0095DF7C /* ExploreProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29B32D74C25E0095DF7C /* ExploreProtocols.swift */; };
+		C7FB29B62D74C2690095DF7C /* ExploreWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29B52D74C2690095DF7C /* ExploreWorker.swift */; };
+		C7FB29B82D74C2740095DF7C /* ExploreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29B72D74C2740095DF7C /* ExploreInteractor.swift */; };
+		C7FB29BA2D74C27F0095DF7C /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29B92D74C27F0095DF7C /* ExplorePresenter.swift */; };
+		C7FB29BC2D74C2940095DF7C /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29BB2D74C2940095DF7C /* ExploreRouter.swift */; };
+		C7FB29BF2D74C6930095DF7C /* ExploreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29BE2D74C6930095DF7C /* ExploreDataModel.swift */; };
+		C7FB29C12D74CD080095DF7C /* ExploreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29C02D74CD080095DF7C /* ExploreAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,19 +112,45 @@
 		C7FB29592D54F9F10095DF7C /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C7FB295F2D55148D0095DF7C /* ToggleButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButtonsView.swift; sourceTree = "<group>"; };
 		C7FB29612D58A8D80095DF7C /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
-		C7FB29632D58F18D0095DF7C /* NewsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataSource.swift; sourceTree = "<group>"; };
 		C7FB29652D58FDAB0095DF7C /* ImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselView.swift; sourceTree = "<group>"; };
 		C7FB29682D59D8AC0095DF7C /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		C7FB296B2D59DDFA0095DF7C /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		C7FB296D2D609BAA0095DF7C /* Sora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Regular.ttf"; sourceTree = "<group>"; };
-		C7FB296F2D60FCB40095DF7C /* PersonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataSource.swift; sourceTree = "<group>"; };
 		C7FB29712D631BDC0095DF7C /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		C7FB29732D6364E80095DF7C /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
-		C7FB29762D6A25B20095DF7C /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
 		C7FB29782D6F09480095DF7C /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		C7FB297E2D6F2DC60095DF7C /* NewArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleViewController.swift; sourceTree = "<group>"; };
 		C7FB29802D6F2DD60095DF7C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C7FB29832D746D980095DF7C /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		C7FB29852D7475850095DF7C /* PersonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRouter.swift; sourceTree = "<group>"; };
+		C7FB29872D7476190095DF7C /* PersonPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonPresenter.swift; sourceTree = "<group>"; };
+		C7FB29892D7476480095DF7C /* PersonInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInteractor.swift; sourceTree = "<group>"; };
+		C7FB298B2D7476800095DF7C /* PersonWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonWorker.swift; sourceTree = "<group>"; };
+		C7FB298D2D7476E40095DF7C /* PersonAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonAssembly.swift; sourceTree = "<group>"; };
+		C7FB298F2D7486540095DF7C /* NewsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsProtocols.swift; sourceTree = "<group>"; };
+		C7FB29912D7486600095DF7C /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
+		C7FB29932D74866C0095DF7C /* NewsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWorker.swift; sourceTree = "<group>"; };
+		C7FB29952D74867E0095DF7C /* NewsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInteractor.swift; sourceTree = "<group>"; };
+		C7FB29972D74868A0095DF7C /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
+		C7FB29992D74874B0095DF7C /* NewsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAssembly.swift; sourceTree = "<group>"; };
+		C7FB299B2D74AA9C0095DF7C /* MapProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocols.swift; sourceTree = "<group>"; };
+		C7FB299D2D74AAC40095DF7C /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		C7FB299F2D74AACF0095DF7C /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		C7FB29A12D74AB0B0095DF7C /* MapWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWorker.swift; sourceTree = "<group>"; };
+		C7FB29A32D74ABC80095DF7C /* MapAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAssembly.swift; sourceTree = "<group>"; };
+		C7FB29A52D74B28E0095DF7C /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		C7FB29A72D74B29D0095DF7C /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		C7FB29AB2D74B2E30095DF7C /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		C7FB29AD2D74B34D0095DF7C /* HomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembly.swift; sourceTree = "<group>"; };
+		C7FB29AF2D74B5840095DF7C /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		C7FB29B12D74B90F0095DF7C /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		C7FB29B32D74C25E0095DF7C /* ExploreProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreProtocols.swift; sourceTree = "<group>"; };
+		C7FB29B52D74C2690095DF7C /* ExploreWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreWorker.swift; sourceTree = "<group>"; };
+		C7FB29B72D74C2740095DF7C /* ExploreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractor.swift; sourceTree = "<group>"; };
+		C7FB29B92D74C27F0095DF7C /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
+		C7FB29BB2D74C2940095DF7C /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
+		C7FB29BE2D74C6930095DF7C /* ExploreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDataModel.swift; sourceTree = "<group>"; };
+		C7FB29C02D74CD080095DF7C /* ExploreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,8 +255,13 @@
 		C7FB29382D3F7D610095DF7C /* News */ = {
 			isa = PBXGroup;
 			children = (
-				C7FB29632D58F18D0095DF7C /* NewsDataSource.swift */,
 				C7FB29402D3F80280095DF7C /* NewsViewController.swift */,
+				C7FB298F2D7486540095DF7C /* NewsProtocols.swift */,
+				C7FB29912D7486600095DF7C /* NewsPresenter.swift */,
+				C7FB29932D74866C0095DF7C /* NewsWorker.swift */,
+				C7FB29952D74867E0095DF7C /* NewsInteractor.swift */,
+				C7FB29972D74868A0095DF7C /* NewsRouter.swift */,
+				C7FB29992D74874B0095DF7C /* NewsAssembly.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -212,8 +269,15 @@
 		C7FB29392D3F7D750095DF7C /* Explore */ = {
 			isa = PBXGroup;
 			children = (
+				C7FB29BD2D74C6700095DF7C /* Models */,
 				C7FB294D2D3FD9820095DF7C /* ExploreDataSource.swift */,
 				C7FB29112D3D8CCD0095DF7C /* ExploreViewController.swift */,
+				C7FB29B32D74C25E0095DF7C /* ExploreProtocols.swift */,
+				C7FB29B52D74C2690095DF7C /* ExploreWorker.swift */,
+				C7FB29B72D74C2740095DF7C /* ExploreInteractor.swift */,
+				C7FB29B92D74C27F0095DF7C /* ExplorePresenter.swift */,
+				C7FB29BB2D74C2940095DF7C /* ExploreRouter.swift */,
+				C7FB29C02D74CD080095DF7C /* ExploreAssembly.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -224,6 +288,11 @@
 				C7FB293E2D3F7FAE0095DF7C /* MapViewController.swift */,
 				C7FB29732D6364E80095DF7C /* MapViewDelegate.swift */,
 				C7FB29782D6F09480095DF7C /* CustomAnnotation.swift */,
+				C7FB299B2D74AA9C0095DF7C /* MapProtocols.swift */,
+				C7FB299D2D74AAC40095DF7C /* MapPresenter.swift */,
+				C7FB299F2D74AACF0095DF7C /* MapInteractor.swift */,
+				C7FB29A12D74AB0B0095DF7C /* MapWorker.swift */,
+				C7FB29A32D74ABC80095DF7C /* MapAssembly.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -232,7 +301,12 @@
 			isa = PBXGroup;
 			children = (
 				C7FB293C2D3F7EFC0095DF7C /* HomeViewController.swift */,
-				C7FB29762D6A25B20095DF7C /* HomeDataSource.swift */,
+				C7FB29A52D74B28E0095DF7C /* HomeProtocols.swift */,
+				C7FB29A72D74B29D0095DF7C /* HomePresenter.swift */,
+				C7FB29AB2D74B2E30095DF7C /* HomeInteractor.swift */,
+				C7FB29AD2D74B34D0095DF7C /* HomeAssembly.swift */,
+				C7FB29AF2D74B5840095DF7C /* HomeWorker.swift */,
+				C7FB29B12D74B90F0095DF7C /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -271,7 +345,11 @@
 			isa = PBXGroup;
 			children = (
 				C7FB29682D59D8AC0095DF7C /* PersonViewController.swift */,
-				C7FB296F2D60FCB40095DF7C /* PersonDataSource.swift */,
+				C7FB29852D7475850095DF7C /* PersonRouter.swift */,
+				C7FB29872D7476190095DF7C /* PersonPresenter.swift */,
+				C7FB29892D7476480095DF7C /* PersonInteractor.swift */,
+				C7FB298B2D7476800095DF7C /* PersonWorker.swift */,
+				C7FB298D2D7476E40095DF7C /* PersonAssembly.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -306,6 +384,14 @@
 				C7FB29832D746D980095DF7C /* Configs.swift */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		C7FB29BD2D74C6700095DF7C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7FB29BE2D74C6930095DF7C /* ExploreDataModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,41 +472,67 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FB29B82D74C2740095DF7C /* ExploreInteractor.swift in Sources */,
+				C7FB29A42D74ABC90095DF7C /* MapAssembly.swift in Sources */,
 				C7FB29602D55148D0095DF7C /* ToggleButtonsView.swift in Sources */,
 				C7FB29542D54F9B80095DF7C /* AuthViewController.swift in Sources */,
 				C7FB29742D6364E90095DF7C /* MapViewDelegate.swift in Sources */,
+				C7FB29882D7476190095DF7C /* PersonPresenter.swift in Sources */,
 				C7FB29362D3F695C0095DF7C /* CustomSegmentedView.swift in Sources */,
-				C7FB29642D58F18D0095DF7C /* NewsDataSource.swift in Sources */,
+				C7FB29862D7475850095DF7C /* PersonRouter.swift in Sources */,
+				C7FB29A82D74B29E0095DF7C /* HomePresenter.swift in Sources */,
+				C7FB29982D74868A0095DF7C /* NewsRouter.swift in Sources */,
+				C7FB29A02D74AACF0095DF7C /* MapInteractor.swift in Sources */,
+				C7FB29AE2D74B34D0095DF7C /* HomeAssembly.swift in Sources */,
 				C7FB29812D6F2DD60095DF7C /* SettingsViewController.swift in Sources */,
 				C7FB29562D54F9CA0095DF7C /* AuthInteractor.swift in Sources */,
+				C7FB29BC2D74C2940095DF7C /* ExploreRouter.swift in Sources */,
+				C7FB29C12D74CD080095DF7C /* ExploreAssembly.swift in Sources */,
+				C7FB29B02D74B5840095DF7C /* HomeWorker.swift in Sources */,
 				C7FB29272D3E291E0095DF7C /* UIView+Pin.swift in Sources */,
 				C7FB294C2D3FD43B0095DF7C /* PersonCell.swift in Sources */,
 				C7FB29662D58FDAB0095DF7C /* ImageCarouselView.swift in Sources */,
+				C7FB29B42D74C25E0095DF7C /* ExploreProtocols.swift in Sources */,
+				C7FB299C2D74AA9C0095DF7C /* MapProtocols.swift in Sources */,
 				C7FB294A2D3FA3750095DF7C /* Article.swift in Sources */,
+				C7FB298E2D7476E40095DF7C /* PersonAssembly.swift in Sources */,
 				C7FB297F2D6F2DC60095DF7C /* NewArticleViewController.swift in Sources */,
 				C7FB29432D3F82220095DF7C /* CustomTabBarController.swift in Sources */,
 				C7FB29792D6F09480095DF7C /* CustomAnnotation.swift in Sources */,
 				C7FB29842D746D980095DF7C /* Configs.swift in Sources */,
+				C7FB298C2D7476800095DF7C /* PersonWorker.swift in Sources */,
 				C7FB29122D3D8CCD0095DF7C /* ExploreViewController.swift in Sources */,
 				C7FB296C2D59DDFA0095DF7C /* ArticleViewController.swift in Sources */,
 				C7FB29722D631BDC0095DF7C /* UIImageView+.swift in Sources */,
+				C7FB299E2D74AAC40095DF7C /* MapPresenter.swift in Sources */,
+				C7FB29A62D74B28E0095DF7C /* HomeProtocols.swift in Sources */,
 				C7FB29322D3E61BE0095DF7C /* CustomButton.swift in Sources */,
+				C7FB29BA2D74C27F0095DF7C /* ExplorePresenter.swift in Sources */,
+				C7FB29962D74867E0095DF7C /* NewsInteractor.swift in Sources */,
 				C7FB29452D3F86D50095DF7C /* UIImage+.swift in Sources */,
 				C7FB292B2D3E320D0095DF7C /* Font.swift in Sources */,
 				C7FB290E2D3D8CCD0095DF7C /* AppDelegate.swift in Sources */,
 				C7FB293F2D3F7FAE0095DF7C /* MapViewController.swift in Sources */,
 				C7FB29302D3E403B0095DF7C /* CustomTextField.swift in Sources */,
 				C7FB29182D3D8CCD0095DF7C /* SightSeeStalker.xcdatamodeld in Sources */,
-				C7FB29702D60FCB40095DF7C /* PersonDataSource.swift in Sources */,
+				C7FB29BF2D74C6930095DF7C /* ExploreDataModel.swift in Sources */,
+				C7FB29B62D74C2690095DF7C /* ExploreWorker.swift in Sources */,
 				C7FB29522D54F9990095DF7C /* AuthState.swift in Sources */,
+				C7FB29AC2D74B2E30095DF7C /* HomeInteractor.swift in Sources */,
 				C7FB29582D54F9E20095DF7C /* AuthPresenter.swift in Sources */,
 				C7FB29102D3D8CCD0095DF7C /* SceneDelegate.swift in Sources */,
+				C7FB298A2D7476480095DF7C /* PersonInteractor.swift in Sources */,
 				C7FB29292D3E2A490095DF7C /* UIColor+.swift in Sources */,
+				C7FB29A22D74AB0B0095DF7C /* MapWorker.swift in Sources */,
+				C7FB29942D74866C0095DF7C /* NewsWorker.swift in Sources */,
+				C7FB29922D7486600095DF7C /* NewsPresenter.swift in Sources */,
 				C7FB29412D3F80280095DF7C /* NewsViewController.swift in Sources */,
+				C7FB29B22D74B90F0095DF7C /* HomeRouter.swift in Sources */,
 				C7FB29482D3FA1670095DF7C /* Person.swift in Sources */,
 				C7FB29342D3E74290095DF7C /* CustomImageView.swift in Sources */,
 				C7FB29692D59D8AC0095DF7C /* PersonViewController.swift in Sources */,
-				C7FB29772D6A25B20095DF7C /* HomeDataSource.swift in Sources */,
+				C7FB299A2D74874B0095DF7C /* NewsAssembly.swift in Sources */,
+				C7FB29902D7486540095DF7C /* NewsProtocols.swift in Sources */,
 				C7FB29622D58A8D90095DF7C /* ArticleCell.swift in Sources */,
 				C7FB295A2D54F9F10095DF7C /* AuthRouter.swift in Sources */,
 				C7FB293D2D3F7EFC0095DF7C /* HomeViewController.swift in Sources */,

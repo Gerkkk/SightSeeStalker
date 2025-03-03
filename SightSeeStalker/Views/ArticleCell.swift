@@ -128,7 +128,6 @@ final class ArticleCell: UITableViewCell {
         
         briefView.pinLeft(to: customLabel.leadingAnchor, 10)
         briefView.pinTop(to: dateView.bottomAnchor, 7)
-//        briefView.pinBottom(to: customLabel.bottomAnchor)
         briefView.setWidth(360)
     
     }

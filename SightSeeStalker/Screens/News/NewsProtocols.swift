@@ -1,0 +1,31 @@
+//
+//  NewsProtocols.swift
+//  SightSeeStalker
+//
+//  Created by Danya Polyakov on 02.03.2025.
+//
+
+import Foundation
+
+protocol NewsViewProtocol: AnyObject {
+    func showNews(_ articles: [ArticleModel])
+}
+
+protocol NewsPresenterProtocol: AnyObject {
+    func fetchNews()
+    func didSelectArticle(_ article: ArticleModel)
+}
+
+protocol NewsInteractorProtocol: AnyObject {
+    func fetchNews()
+}
+
+protocol NewsInteractorOutputProtocol: AnyObject {
+    func newsFetched(_ articles: [ArticleModel])
+    func didLoadAllData()
+}
+
+protocol NewsRouterProtocol: AnyObject {
+    func navigateToArticleDetail(_ article: ArticleModel)
+}
+

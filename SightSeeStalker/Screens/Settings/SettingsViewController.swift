@@ -41,7 +41,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    var personModel: PersonModel? // Модель данных пользователя
+    var personModel: PersonModel?
 
     private let tableView = UITableView()
     
@@ -82,7 +82,7 @@ class SettingsViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.backgroundColor = .clear
-        tableView.tableFooterView = UIView() // Убираем лишние линии
+        tableView.tableFooterView = UIView()
         view.addSubview(tableView)
     }
     
@@ -94,9 +94,7 @@ class SettingsViewController: UIViewController {
         view.addSubview(saveButton)
     }
     
-    // Сохранение изменений
     @objc private func saveChanges() {
-        // Здесь можно добавить код для сохранения изменений, например, через API
         print("Changes saved: \(name), \(tag), \(status)")
     }
     
@@ -107,11 +105,11 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4 // Одну секцию для каждого поля
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 // Каждое поле - одна строка
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -145,7 +143,6 @@ extension SettingsViewController: UITableViewDataSource {
 }
 
 extension SettingsViewController: UITableViewDelegate {
-    // Настройка ячейки для редактирования
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -153,7 +150,7 @@ extension SettingsViewController: UITableViewDelegate {
         
         
         switch indexPath.section {
-        case 0: // Редактирование имени
+        case 0:
             alertController = UIAlertController(title: "Edit Name", message: nil, preferredStyle: .alert)
             alertController.addTextField { textField in
                 textField.text = self.name
@@ -165,7 +162,7 @@ extension SettingsViewController: UITableViewDelegate {
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 }
             }))
-        case 1: // Редактирование тега
+        case 1:
             alertController = UIAlertController(title: "Edit Tag", message: nil, preferredStyle: .alert)
             alertController.addTextField { textField in
                 textField.text = self.tag
@@ -177,7 +174,7 @@ extension SettingsViewController: UITableViewDelegate {
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 }
             }))
-        case 2: // Редактирование статуса
+        case 2:
             alertController = UIAlertController(title: "Edit Status", message: nil, preferredStyle: .alert)
             alertController.addTextField { textField in
                 textField.text = self.status
@@ -189,7 +186,7 @@ extension SettingsViewController: UITableViewDelegate {
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 }
             }))
-        case 3: // Редактирование аватара
+        case 3:
             alertController = UIAlertController(title: "Edit Avatar", message: "Choose a photo", preferredStyle: .actionSheet)
             alertController.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
                 self.presentImagePicker(sourceType: .camera)
@@ -205,7 +202,6 @@ extension SettingsViewController: UITableViewDelegate {
         present(alertController, animated: true, completion: nil)
     }
     
-    // Выбор фото из библиотеки или камеры
     private func presentImagePicker(sourceType: UIImagePickerController.SourceType) {
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             let picker = UIImagePickerController()
