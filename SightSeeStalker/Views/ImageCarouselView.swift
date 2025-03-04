@@ -41,7 +41,7 @@ class ImageCarouselView: UIView, UIScrollViewDelegate {
     private func setupImages() {
         for (index, url) in images.enumerated() {
             let imageView = UIImageView()
-            imageView.loadImage(from: "http://127.0.0.1:8000" + url)
+            imageView.loadImage(from: Config.baseURL + url)
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 30

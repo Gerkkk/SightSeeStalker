@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C790F8082D76E238008C61A8 /* NewArticleTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8072D76E238008C61A8 /* NewArticleTableDataSource.swift */; };
+		C790F80A2D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8092D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift */; };
 		C7FB290E2D3D8CCD0095DF7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB290D2D3D8CCD0095DF7C /* AppDelegate.swift */; };
 		C7FB29102D3D8CCD0095DF7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB290F2D3D8CCD0095DF7C /* SceneDelegate.swift */; };
 		C7FB29122D3D8CCD0095DF7C /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29112D3D8CCD0095DF7C /* ExploreViewController.swift */; };
@@ -80,6 +82,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C790F8072D76E238008C61A8 /* NewArticleTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleTableDataSource.swift; sourceTree = "<group>"; };
+		C790F8092D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromPhoneCarouselView.swift; sourceTree = "<group>"; };
 		C7FB290A2D3D8CCD0095DF7C /* SightSeeStalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightSeeStalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FB290D2D3D8CCD0095DF7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7FB290F2D3D8CCD0095DF7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				C7FB295F2D55148D0095DF7C /* ToggleButtonsView.swift */,
 				C7FB29612D58A8D80095DF7C /* ArticleCell.swift */,
 				C7FB29652D58FDAB0095DF7C /* ImageCarouselView.swift */,
+				C790F8092D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				C7FB297E2D6F2DC60095DF7C /* NewArticleViewController.swift */,
+				C790F8072D76E238008C61A8 /* NewArticleTableDataSource.swift */,
 			);
 			path = NewArticle;
 			sourceTree = "<group>";
@@ -514,9 +520,11 @@
 				C7FB290E2D3D8CCD0095DF7C /* AppDelegate.swift in Sources */,
 				C7FB293F2D3F7FAE0095DF7C /* MapViewController.swift in Sources */,
 				C7FB29302D3E403B0095DF7C /* CustomTextField.swift in Sources */,
+				C790F80A2D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift in Sources */,
 				C7FB29182D3D8CCD0095DF7C /* SightSeeStalker.xcdatamodeld in Sources */,
 				C7FB29BF2D74C6930095DF7C /* ExploreDataModel.swift in Sources */,
 				C7FB29B62D74C2690095DF7C /* ExploreWorker.swift in Sources */,
+				C790F8082D76E238008C61A8 /* NewArticleTableDataSource.swift in Sources */,
 				C7FB29522D54F9990095DF7C /* AuthState.swift in Sources */,
 				C7FB29AC2D74B2E30095DF7C /* HomeInteractor.swift in Sources */,
 				C7FB29582D54F9E20095DF7C /* AuthPresenter.swift in Sources */,
