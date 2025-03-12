@@ -13,7 +13,7 @@ extension NewArticleViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,7 +33,8 @@ extension NewArticleViewController: UITableViewDataSource {
             textField.pinLeft(to: cell.contentView.leadingAnchor, 10)
             textField.pinRight(to: cell.contentView.trailingAnchor, 10)
             textField.pinBottom(to: cell.contentView.bottomAnchor, 5)
-        
+            
+            self.nameField = textField
         case 1:
             let coordinateStack = UIStackView()
             coordinateStack.axis = .horizontal
@@ -61,6 +62,7 @@ extension NewArticleViewController: UITableViewDataSource {
             coordinateStack.pinRight(to: cell.contentView.trailingAnchor, 10)
             coordinateStack.pinBottom(to: cell.contentView.bottomAnchor, 5)
             
+            self.datePicker = datePicker
         case 2:
             let coordinateStack = UIStackView()
             coordinateStack.axis = .horizontal
@@ -79,7 +81,8 @@ extension NewArticleViewController: UITableViewDataSource {
             coordinateStack.pinLeft(to: cell.contentView.leadingAnchor, 10)
             coordinateStack.pinRight(to: cell.contentView.trailingAnchor, 10)
             coordinateStack.pinBottom(to: cell.contentView.bottomAnchor, 5)
-        
+            self.coordNField = latField
+            self.coordWField = lonField
         case 3:
             let textView = createTextView()
             cell.contentView.addSubview(textView)
@@ -88,6 +91,7 @@ extension NewArticleViewController: UITableViewDataSource {
             textView.pinLeft(to: cell.contentView.leadingAnchor, 10)
             textView.pinRight(to: cell.contentView.trailingAnchor, 10)
             textView.pinBottom(to: cell.contentView.bottomAnchor, 5)
+            self.briefView = textView
         case 4:
             let textView = createTextView()
             cell.contentView.addSubview(textView)
@@ -96,11 +100,55 @@ extension NewArticleViewController: UITableViewDataSource {
             textView.pinLeft(to: cell.contentView.leadingAnchor, 10)
             textView.pinRight(to: cell.contentView.trailingAnchor, 10)
             textView.pinBottom(to: cell.contentView.bottomAnchor, 5)
+            self.textView = textView
+        case 5:
+            let carouselView: ImageFromPhoneCarouselView = {
+                let view = ImageFromPhoneCarouselView(images: [])
+                return view
+            }()
+            self.imageCarousel = carouselView
+            print(carouselView.images.count)
+            cell.contentView.addSubview(carouselView)
+            carouselView.setHeight(200)
+            carouselView.translatesAutoresizingMaskIntoConstraints = false
+            carouselView.pinTop(to: cell.contentView.topAnchor, 5)
+            carouselView.pinLeft(to: cell.contentView.leadingAnchor, 10)
+            carouselView.pinRight(to: cell.contentView.trailingAnchor, 10)
+            carouselView.pinBottom(to: cell.contentView.bottomAnchor, 5)
+        case 6:
+            let publishButton: UIButton = {
+                let button = UIButton(type: .system)
+                button.setTitle("Publish Article", for: .normal)
+                button.backgroundColor = UIColor.customGreen
+                button.titleLabel?.textColor = .black
+                return button
+            }()
+            cell.contentView.addSubview(publishButton)
+            publishButton.setHeight(28)
+            publishButton.setWidth(80)
+            publishButton.pinTop(to: cell.contentView.topAnchor, 5)
+            publishButton.pinCenterX(to: cell.contentView)
+            publishButton.pinBottom(to: cell.contentView.bottomAnchor, 5)
+            publishButton.layer.cornerRadius = 10
+            publishButton.setTitleColor(UIColor.backgroundCol, for: .normal)
+            publishButton.addTarget(self, action: #selector(publishButtonTapped), for: .touchUpInside)
         default:
             break
         }
         
         return cell
+    }
+    //TODO: replace author id, maybe guard let
+    @objc func publishButtonTapped() {
+        let date = Int(self.datePicker?.date.timeIntervalSince1970 ?? 0)
+        let coordsN = Double(self.coordNField?.text ?? "0")
+        let coordsW = Double(self.coordWField!.text ?? "0")
+        
+        
+        var jsonInfo: [String: Any] = ["author_id": 0, "title": self.nameField?.text ?? "", "date": date, "coords_n": coordsN as Any, "coords_w": coordsW, "brief": self.briefView?.text ?? "" as Any, "text": self.textView!.text ?? ""]
+        self.presenter?.publishArticle(images: imageCarousel?.images ?? [], json: jsonInfo)
+//        self.uploadImagesWithJSON(images: imageCarousel?.images ?? [], json: jsonInfo)
+        navigationController?.popViewController(animated: true)
     }
     
     private func createTextField(placeholder: String) -> UITextField {

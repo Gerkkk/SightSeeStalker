@@ -15,6 +15,12 @@ final class NewsInteractor: NewsInteractorProtocol {
     var isLoading = false
     var allDataLoaded = false
     
+    func dropValues() {
+        pageNum = 0
+        isLoading = false
+        allDataLoaded = false
+    }
+    
     func fetchNews() {
         if isLoading == false && allDataLoaded == false {
             isLoading = true

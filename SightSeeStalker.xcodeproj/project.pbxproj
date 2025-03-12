@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		C790F8082D76E238008C61A8 /* NewArticleTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8072D76E238008C61A8 /* NewArticleTableDataSource.swift */; };
 		C790F80A2D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8092D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift */; };
+		C790F82F2D802FBB008C61A8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F82E2D802FBB008C61A8 /* Settings.swift */; };
+		C790F8332D817152008C61A8 /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8322D817152008C61A8 /* SettingsProtocols.swift */; };
+		C790F8352D817169008C61A8 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8342D817169008C61A8 /* SettingsInteractor.swift */; };
+		C790F8372D817182008C61A8 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8362D817182008C61A8 /* SettingsPresenter.swift */; };
+		C790F8392D817226008C61A8 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8382D817226008C61A8 /* SettingsRouter.swift */; };
+		C790F83B2D81722F008C61A8 /* SettingsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F83A2D81722F008C61A8 /* SettingsWorker.swift */; };
+		C790F83D2D81723C008C61A8 /* SettingsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F83C2D81723C008C61A8 /* SettingsAssembly.swift */; };
+		C790F83F2D8174FB008C61A8 /* SettingsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F83E2D8174FB008C61A8 /* SettingsTableDataSource.swift */; };
+		C790F8412D817547008C61A8 /* SettingsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8402D817547008C61A8 /* SettingsTableDelegate.swift */; };
+		C790F8432D8175ED008C61A8 /* SettingsDatePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8422D8175ED008C61A8 /* SettingsDatePickerDelegate.swift */; };
+		C790F8452D8191CE008C61A8 /* NewArticleWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8442D8191CE008C61A8 /* NewArticleWorker.swift */; };
+		C790F8472D8191D9008C61A8 /* NewArticleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8462D8191D9008C61A8 /* NewArticleRouter.swift */; };
+		C790F8492D8191E4008C61A8 /* NewArticlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8482D8191E3008C61A8 /* NewArticlePresenter.swift */; };
+		C790F84B2D8191ED008C61A8 /* NewArticleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F84A2D8191ED008C61A8 /* NewArticleInteractor.swift */; };
+		C790F84D2D819210008C61A8 /* NewArticleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F84C2D819210008C61A8 /* NewArticleProtocols.swift */; };
+		C790F84F2D81921E008C61A8 /* NewArticleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F84E2D81921E008C61A8 /* NewArticleAssembly.swift */; };
 		C7FB290E2D3D8CCD0095DF7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB290D2D3D8CCD0095DF7C /* AppDelegate.swift */; };
 		C7FB29102D3D8CCD0095DF7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB290F2D3D8CCD0095DF7C /* SceneDelegate.swift */; };
 		C7FB29122D3D8CCD0095DF7C /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29112D3D8CCD0095DF7C /* ExploreViewController.swift */; };
@@ -84,6 +100,22 @@
 /* Begin PBXFileReference section */
 		C790F8072D76E238008C61A8 /* NewArticleTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleTableDataSource.swift; sourceTree = "<group>"; };
 		C790F8092D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromPhoneCarouselView.swift; sourceTree = "<group>"; };
+		C790F82E2D802FBB008C61A8 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C790F8322D817152008C61A8 /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		C790F8342D817169008C61A8 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		C790F8362D817182008C61A8 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		C790F8382D817226008C61A8 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		C790F83A2D81722F008C61A8 /* SettingsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWorker.swift; sourceTree = "<group>"; };
+		C790F83C2D81723C008C61A8 /* SettingsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAssembly.swift; sourceTree = "<group>"; };
+		C790F83E2D8174FB008C61A8 /* SettingsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableDataSource.swift; sourceTree = "<group>"; };
+		C790F8402D817547008C61A8 /* SettingsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableDelegate.swift; sourceTree = "<group>"; };
+		C790F8422D8175ED008C61A8 /* SettingsDatePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDatePickerDelegate.swift; sourceTree = "<group>"; };
+		C790F8442D8191CE008C61A8 /* NewArticleWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleWorker.swift; sourceTree = "<group>"; };
+		C790F8462D8191D9008C61A8 /* NewArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleRouter.swift; sourceTree = "<group>"; };
+		C790F8482D8191E3008C61A8 /* NewArticlePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlePresenter.swift; sourceTree = "<group>"; };
+		C790F84A2D8191ED008C61A8 /* NewArticleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleInteractor.swift; sourceTree = "<group>"; };
+		C790F84C2D819210008C61A8 /* NewArticleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleProtocols.swift; sourceTree = "<group>"; };
+		C790F84E2D81921E008C61A8 /* NewArticleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleAssembly.swift; sourceTree = "<group>"; };
 		C7FB290A2D3D8CCD0095DF7C /* SightSeeStalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightSeeStalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FB290D2D3D8CCD0095DF7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7FB290F2D3D8CCD0095DF7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -321,6 +353,7 @@
 			children = (
 				C7FB29472D3FA1670095DF7C /* Person.swift */,
 				C7FB29492D3FA3750095DF7C /* Article.swift */,
+				C790F82E2D802FBB008C61A8 /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,6 +404,15 @@
 			isa = PBXGroup;
 			children = (
 				C7FB29802D6F2DD60095DF7C /* SettingsViewController.swift */,
+				C790F8322D817152008C61A8 /* SettingsProtocols.swift */,
+				C790F8342D817169008C61A8 /* SettingsInteractor.swift */,
+				C790F8362D817182008C61A8 /* SettingsPresenter.swift */,
+				C790F8382D817226008C61A8 /* SettingsRouter.swift */,
+				C790F83A2D81722F008C61A8 /* SettingsWorker.swift */,
+				C790F83C2D81723C008C61A8 /* SettingsAssembly.swift */,
+				C790F83E2D8174FB008C61A8 /* SettingsTableDataSource.swift */,
+				C790F8402D817547008C61A8 /* SettingsTableDelegate.swift */,
+				C790F8422D8175ED008C61A8 /* SettingsDatePickerDelegate.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -380,6 +422,12 @@
 			children = (
 				C7FB297E2D6F2DC60095DF7C /* NewArticleViewController.swift */,
 				C790F8072D76E238008C61A8 /* NewArticleTableDataSource.swift */,
+				C790F8442D8191CE008C61A8 /* NewArticleWorker.swift */,
+				C790F8462D8191D9008C61A8 /* NewArticleRouter.swift */,
+				C790F8482D8191E3008C61A8 /* NewArticlePresenter.swift */,
+				C790F84A2D8191ED008C61A8 /* NewArticleInteractor.swift */,
+				C790F84C2D819210008C61A8 /* NewArticleProtocols.swift */,
+				C790F84E2D81921E008C61A8 /* NewArticleAssembly.swift */,
 			);
 			path = NewArticle;
 			sourceTree = "<group>";
@@ -481,6 +529,7 @@
 				C7FB29B82D74C2740095DF7C /* ExploreInteractor.swift in Sources */,
 				C7FB29A42D74ABC90095DF7C /* MapAssembly.swift in Sources */,
 				C7FB29602D55148D0095DF7C /* ToggleButtonsView.swift in Sources */,
+				C790F8352D817169008C61A8 /* SettingsInteractor.swift in Sources */,
 				C7FB29542D54F9B80095DF7C /* AuthViewController.swift in Sources */,
 				C7FB29742D6364E90095DF7C /* MapViewDelegate.swift in Sources */,
 				C7FB29882D7476190095DF7C /* PersonPresenter.swift in Sources */,
@@ -492,6 +541,8 @@
 				C7FB29AE2D74B34D0095DF7C /* HomeAssembly.swift in Sources */,
 				C7FB29812D6F2DD60095DF7C /* SettingsViewController.swift in Sources */,
 				C7FB29562D54F9CA0095DF7C /* AuthInteractor.swift in Sources */,
+				C790F8372D817182008C61A8 /* SettingsPresenter.swift in Sources */,
+				C790F8432D8175ED008C61A8 /* SettingsDatePickerDelegate.swift in Sources */,
 				C7FB29BC2D74C2940095DF7C /* ExploreRouter.swift in Sources */,
 				C7FB29C12D74CD080095DF7C /* ExploreAssembly.swift in Sources */,
 				C7FB29B02D74B5840095DF7C /* HomeWorker.swift in Sources */,
@@ -509,7 +560,9 @@
 				C7FB298C2D7476800095DF7C /* PersonWorker.swift in Sources */,
 				C7FB29122D3D8CCD0095DF7C /* ExploreViewController.swift in Sources */,
 				C7FB296C2D59DDFA0095DF7C /* ArticleViewController.swift in Sources */,
+				C790F8332D817152008C61A8 /* SettingsProtocols.swift in Sources */,
 				C7FB29722D631BDC0095DF7C /* UIImageView+.swift in Sources */,
+				C790F83B2D81722F008C61A8 /* SettingsWorker.swift in Sources */,
 				C7FB299E2D74AAC40095DF7C /* MapPresenter.swift in Sources */,
 				C7FB29A62D74B28E0095DF7C /* HomeProtocols.swift in Sources */,
 				C7FB29322D3E61BE0095DF7C /* CustomButton.swift in Sources */,
@@ -521,19 +574,30 @@
 				C7FB293F2D3F7FAE0095DF7C /* MapViewController.swift in Sources */,
 				C7FB29302D3E403B0095DF7C /* CustomTextField.swift in Sources */,
 				C790F80A2D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift in Sources */,
+				C790F84F2D81921E008C61A8 /* NewArticleAssembly.swift in Sources */,
 				C7FB29182D3D8CCD0095DF7C /* SightSeeStalker.xcdatamodeld in Sources */,
 				C7FB29BF2D74C6930095DF7C /* ExploreDataModel.swift in Sources */,
+				C790F83F2D8174FB008C61A8 /* SettingsTableDataSource.swift in Sources */,
 				C7FB29B62D74C2690095DF7C /* ExploreWorker.swift in Sources */,
 				C790F8082D76E238008C61A8 /* NewArticleTableDataSource.swift in Sources */,
 				C7FB29522D54F9990095DF7C /* AuthState.swift in Sources */,
 				C7FB29AC2D74B2E30095DF7C /* HomeInteractor.swift in Sources */,
+				C790F84D2D819210008C61A8 /* NewArticleProtocols.swift in Sources */,
+				C790F8472D8191D9008C61A8 /* NewArticleRouter.swift in Sources */,
 				C7FB29582D54F9E20095DF7C /* AuthPresenter.swift in Sources */,
 				C7FB29102D3D8CCD0095DF7C /* SceneDelegate.swift in Sources */,
+				C790F8492D8191E4008C61A8 /* NewArticlePresenter.swift in Sources */,
+				C790F8452D8191CE008C61A8 /* NewArticleWorker.swift in Sources */,
 				C7FB298A2D7476480095DF7C /* PersonInteractor.swift in Sources */,
 				C7FB29292D3E2A490095DF7C /* UIColor+.swift in Sources */,
 				C7FB29A22D74AB0B0095DF7C /* MapWorker.swift in Sources */,
+				C790F84B2D8191ED008C61A8 /* NewArticleInteractor.swift in Sources */,
+				C790F8392D817226008C61A8 /* SettingsRouter.swift in Sources */,
+				C790F82F2D802FBB008C61A8 /* Settings.swift in Sources */,
 				C7FB29942D74866C0095DF7C /* NewsWorker.swift in Sources */,
+				C790F8412D817547008C61A8 /* SettingsTableDelegate.swift in Sources */,
 				C7FB29922D7486600095DF7C /* NewsPresenter.swift in Sources */,
+				C790F83D2D81723C008C61A8 /* SettingsAssembly.swift in Sources */,
 				C7FB29412D3F80280095DF7C /* NewsViewController.swift in Sources */,
 				C7FB29B22D74B90F0095DF7C /* HomeRouter.swift in Sources */,
 				C7FB29482D3FA1670095DF7C /* Person.swift in Sources */,

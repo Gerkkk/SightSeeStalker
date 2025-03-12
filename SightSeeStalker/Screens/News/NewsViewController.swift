@@ -38,6 +38,8 @@ final class NewsViewController: UIViewController, NewsViewProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter?.dropValues()
+        Articles = []
         presenter?.fetchNews()
     }
     

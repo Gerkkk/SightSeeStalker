@@ -16,6 +16,10 @@ final class NewsPresenter: NewsPresenterProtocol {
         interactor?.fetchNews()
     }
     
+    func dropValues() {
+        interactor?.dropValues()
+    }
+    
     func didSelectArticle(_ article: ArticleModel) {
         router?.navigateToArticleDetail(article)
     }

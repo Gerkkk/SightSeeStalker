@@ -7,7 +7,26 @@
 
 import UIKit
 
-final class NewArticleViewController: UIViewController {
+final class NewArticleViewController: UIViewController, NewArticleViewProtocol {
+    var presenter: NewArticlePresenterProtocol!
+    
+    public weak var imageCarousel: ImageFromPhoneCarouselView?
+    public weak var nameField: UITextField?
+    public weak var datePicker: UIDatePicker?
+    public weak var coordNField: UITextField?
+    public weak var coordWField: UITextField?
+    public weak var briefView: UITextView?
+    public weak var textView: UITextView?
+    
+    
+    private let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.backgroundColor = .clear
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.alwaysBounceHorizontal = false
+        sv.clipsToBounds = false
+        return sv
+    }()
     
     private let backButton: UIButton = {
         let button = UIButton(type: .system)
@@ -36,47 +55,61 @@ final class NewArticleViewController: UIViewController {
         return table
     }()
     
-    private let carouselView: ImageFromPhoneCarouselView = {
-        let view = ImageFromPhoneCarouselView(images: [])
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.backgroundCol
         
-        view.addSubview(backButton)
-        backButton.pinLeft(to: view.safeAreaLayoutGuide.leadingAnchor, 10)
-        backButton.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 2)
+        view.addSubview(scrollView)
+        scrollView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
+        scrollView.pinBottom(to: view.bottomAnchor)
+        scrollView.pinLeft(to: view.leadingAnchor)
+        scrollView.pinRight(to: view.trailingAnchor)
+        
+        
+        scrollView.addSubview(backButton)
+        backButton.pinLeft(to: scrollView.leadingAnchor, 10)
+        backButton.pinTop(to: scrollView.topAnchor, 2)
         backButton.setWidth(20)
         backButton.setHeight(30)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         
-        view.addSubview(pageNameLabel)
-        pageNameLabel.pinCenterX(to: view)
-        pageNameLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 2)
+        scrollView.addSubview(pageNameLabel)
+        pageNameLabel.pinCenterX(to: scrollView)
+        pageNameLabel.pinTop(to: scrollView.topAnchor, 2)
         
-        view.addSubview(newArticleTable)
+        scrollView.addSubview(newArticleTable)
         newArticleTable.register(UITableViewCell.self, forCellReuseIdentifier: "NewArticleTableCell")
         newArticleTable.pinTop(to: pageNameLabel.bottomAnchor, 5)
-        newArticleTable.pinLeft(to: view.leadingAnchor, 15)
-        newArticleTable.pinRight(to: view.trailingAnchor, 15)
-        //newArticleTable.pinBottom(to: view.bottomAnchor)
-        newArticleTable.setHeight(425)
+        newArticleTable.pinLeft(to: view.leadingAnchor)
+        newArticleTable.pinRight(to: view.trailingAnchor)
+        newArticleTable.setHeight(690)
         newArticleTable.dataSource = self
         
-        view.addSubview(carouselView)
-        //carouselView.pinTop(to: newArticleTable.bottomAnchor, 60)
-        carouselView.pinCenterX(to: view.centerXAnchor)
-        carouselView.pinBottom(to: view.bottomAnchor)
+        updateScrollViewContentSize()
     }
     
-    @objc func backButtonTapped() {
-        navigationController?.popViewController(animated: true)
+    @objc private func backButtonTapped() {
+        presenter.backButtonTapped()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    private func updateScrollViewContentSize() {
+        let tableHeight = newArticleTable.contentSize.height
+        let totalHeight = pageNameLabel.frame.maxY + tableHeight + 70
+
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: totalHeight)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateScrollViewContentSize()
+    }
+    
+    func updateView() {
+        newArticleTable.reloadData()
     }
 }
 

@@ -14,10 +14,12 @@ protocol NewsViewProtocol: AnyObject {
 protocol NewsPresenterProtocol: AnyObject {
     func fetchNews()
     func didSelectArticle(_ article: ArticleModel)
+    func dropValues()
 }
 
 protocol NewsInteractorProtocol: AnyObject {
     func fetchNews()
+    func dropValues()
 }
 
 protocol NewsInteractorOutputProtocol: AnyObject {

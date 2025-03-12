@@ -13,16 +13,17 @@ final class HomeRouter: HomeRouterProtocol {
     
     func navigateToArticle(article: ArticleModel) {
         let articleVC = ArticleViewController(article: article)
+        
         viewController?.navigationController?.pushViewController(articleVC, animated: true)
     }
     
     func navigateToSettings() {
-        let settingsVC = SettingsViewController()
+        let settingsVC = SettingsAssembly.build()
         viewController?.navigationController?.pushViewController(settingsVC, animated: true)
     }
     
     func navigateToNewArticle() {
-        let newArticleVC = NewArticleViewController()
+        let newArticleVC = NewArticleAssembly.build()
         viewController?.navigationController?.pushViewController(newArticleVC, animated: true)
     }
 }

@@ -131,5 +131,17 @@ final class ArticleCell: UITableViewCell {
         briefView.setWidth(360)
     
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        nameView.text = nil
+        tagView.text = nil
+        avatarView.image = nil
+        articleImageView.image = nil
+        articleNameView.text = nil
+        dateView.text = nil
+        briefView.text = nil
+    }
 }
 

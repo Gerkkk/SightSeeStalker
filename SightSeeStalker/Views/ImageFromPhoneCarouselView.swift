@@ -9,13 +9,13 @@ import UIKit
 
 class ImageFromPhoneCarouselView: UIView, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    private var images: [String]
+    var images: [UIImage]
     
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
-    private let addImageButton = UIButton()
+    private let addImageButton = UIButton(type: .system)
 
-    init(images: [String]) {
+    init(images: [UIImage]) {
         self.images = images
         super.init(frame: .zero)
         setupView()
@@ -39,6 +39,7 @@ class ImageFromPhoneCarouselView: UIView, UIScrollViewDelegate, UIImagePickerCon
 
         addImageButton.setTitle("Add Image", for: .normal)
         addImageButton.backgroundColor = UIColor.customGreen
+        addImageButton.setTitleColor(UIColor.backgroundCol, for: .normal)
         addImageButton.layer.cornerRadius = 10
         addImageButton.addTarget(self, action: #selector(didTapAddImageButton), for: .touchUpInside)
         addSubview(addImageButton)
@@ -47,9 +48,10 @@ class ImageFromPhoneCarouselView: UIView, UIScrollViewDelegate, UIImagePickerCon
     }
     
     private func setupImages() {
-        for (index, url) in images.enumerated() {
+        print("LOL")
+        for (index, image) in images.enumerated() {
             let imageView = UIImageView()
-            imageView.loadImage(from: "http://127.0.0.1:8000" + url)
+            imageView.image = image
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 30
@@ -69,8 +71,20 @@ class ImageFromPhoneCarouselView: UIView, UIScrollViewDelegate, UIImagePickerCon
     override func layoutSubviews() {
         super.layoutSubviews()
         scrollView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height * 0.8)
-        pageControl.frame = CGRect(x: 0, y: scrollView.frame.maxY, width: frame.width, height: 20)
-        addImageButton.frame = CGRect(x: frame.width - 120, y: frame.height - 60, width: 100, height: 40)
+        scrollView.pinTop(to: self.topAnchor)
+        scrollView.pinCenterX(to: self)
+        scrollView.setHeight(0.8 * frame.height)
+        pageControl.setWidth(frame.width)
+        
+        pageControl.pinTop(to: scrollView.bottomAnchor)
+        pageControl.pinCenterX(to: self)
+        pageControl.setWidth(frame.width)
+        pageControl.setHeight(0.05 * frame.height)
+        
+        addImageButton.pinTop(to: pageControl.bottomAnchor, 2)
+        addImageButton.pinCenterX(to: self)
+        addImageButton.setWidth(80)
+        addImageButton.setHeight(frame.height * 0.15 - 2)
         setupImages()
     }
 
@@ -80,7 +94,6 @@ class ImageFromPhoneCarouselView: UIView, UIScrollViewDelegate, UIImagePickerCon
     }
     
     @objc private func didTapAddImageButton() {
-        print(1)
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
@@ -91,19 +104,10 @@ class ImageFromPhoneCarouselView: UIView, UIScrollViewDelegate, UIImagePickerCon
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = info[.originalImage] as? UIImage {
-            let imageName = UUID().uuidString + ".jpg"
-            if let imageData = selectedImage.jpegData(compressionQuality: 0.8) {
-                let fileManager = FileManager.default
-                let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-                let fileURL = documentsDirectory.appendingPathComponent(imageName)
-                
-                try? imageData.write(to: fileURL)
-                
-                images.append(fileURL.absoluteString)
-                pageControl.numberOfPages = images.count
-                setupImages()
-            }
+        if let image = info[.editedImage] as? UIImage ?? info[.originalImage] as? UIImage {
+            images.append(image)
+            pageControl.numberOfPages = images.count
+            setupImages()
         }
         
         picker.dismiss(animated: true, completion: nil)
