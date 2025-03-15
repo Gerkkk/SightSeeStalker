@@ -9,9 +9,16 @@ import UIKit
 
 
 final class NewsViewController: UIViewController, NewsViewProtocol {
+    private enum Constants {
+        static let tableRowHeight = CGFloat(430)
+        static let tableCellCornerRadius = CGFloat(20)
+        static let tableLeadingOffset = CGFloat(17)
+        static let tableTopOffset = CGFloat(3)
+    }
+    
     var presenter: NewsPresenterProtocol?
     
-    private var Articles: [ArticleModel] = []
+    var Articles: [ArticleModel] = []
     
     private let nameLabel: UILabel = {
         let nameLabel = UILabel()
@@ -20,12 +27,12 @@ final class NewsViewController: UIViewController, NewsViewProtocol {
         return nameLabel
     }()
     
-    private let newsTable: UITableView = {
+    let newsTable: UITableView = {
         let table = UITableView()
         table.backgroundColor = .clear
         table.separatorStyle = .none
-        table.rowHeight = 430
-        table.layer.cornerRadius = 20
+        table.rowHeight = Constants.tableRowHeight
+        table.layer.cornerRadius = Constants.tableCellCornerRadius
         table.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.reuseId)
         return table
     }()
@@ -54,47 +61,14 @@ final class NewsViewController: UIViewController, NewsViewProtocol {
         
         newsTable.dataSource = self
         newsTable.delegate = self
-        newsTable.pinTop(to: nameLabel.bottomAnchor, 3)
+        newsTable.pinTop(to: nameLabel.bottomAnchor, Constants.tableTopOffset)
         newsTable.pinBottom(to: view.bottomAnchor)
-        newsTable.pinLeft(to: view.leadingAnchor, 17)
+        newsTable.pinLeft(to: view.leadingAnchor, Constants.tableLeadingOffset)
         newsTable.pinRight(to: view.trailingAnchor)
     }
     
     func showNews(_ articles: [ArticleModel]) {
         self.Articles.append(contentsOf: articles)
         newsTable.reloadData()
-    }
-}
-
-
-// MARK: - UITableViewDataSource & Delegate
-extension NewsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Articles.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCell.reuseId, for: indexPath)
-        guard let articleCell = cell as? ArticleCell else { return cell }
-        articleCell.configure(with: Articles[indexPath.row])
-        return articleCell
-    }
-}
-
-extension NewsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        presenter?.didSelectArticle(Articles[indexPath.row])
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentHeight = scrollView.contentSize.height
-        let scrollPosition = scrollView.contentOffset.y
-        let tableViewHeight = scrollView.frame.size.height
-        
-        if scrollPosition + tableViewHeight > contentHeight - 0 {
-            presenter?.fetchNews()
-        }
     }
 }

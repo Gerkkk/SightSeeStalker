@@ -8,7 +8,7 @@
 import MapKit
 
 class MapPresenter: MapPresenterProtocol {
-    var view: MapViewController!
+    weak var view: MapViewController?
     var interactor: MapInteractorProtocol!
     
     func loadSelfArticles() {
@@ -20,10 +20,10 @@ class MapPresenter: MapPresenterProtocol {
     }
     
     func handleFetchedAnnotations(_ annotations: [MKAnnotation]) {
-        view.showAnnotations(annotations)
+        view?.showAnnotations(annotations)
     }
     
     func handleFetchError(_ error: Error) {
-        view.showError(error)
+        view?.showError(error)
     }
 }

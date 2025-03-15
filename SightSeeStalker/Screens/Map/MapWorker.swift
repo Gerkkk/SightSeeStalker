@@ -31,7 +31,7 @@ class MapWorker: MapWorkerProtocol {
                     let articlesPage = try decoder.decode(ArticlesModel.self, from: data)
                     
                     var annotations: [MKAnnotation] = []
-                    for article in articlesPage.articles ?? [] {
+                    for article in articlesPage.articles {
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = CLLocationCoordinate2D(latitude: article.coordsN ?? 0, longitude: article.coordsW ?? 0)
                         annotation.title = article.title

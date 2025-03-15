@@ -11,12 +11,17 @@ import Darwin
 
 // MARK: - UITableViewDataSource
 extension ExploreViewController: UITableViewDataSource {
+    private enum Constants {
+        static let peopleRowHeight = CGFloat(81)
+        static let articlesRowHeight = CGFloat(430)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if buttonsToggle.isLeftButtonSelected {
-            table.rowHeight = 81
+            table.rowHeight = Constants.peopleRowHeight
             return People.count
         } else {
-            table.rowHeight = 430
+            table.rowHeight = Constants.articlesRowHeight
             return Articles.count
         }
     }

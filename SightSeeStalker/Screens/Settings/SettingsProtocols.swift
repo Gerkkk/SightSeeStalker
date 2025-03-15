@@ -13,7 +13,7 @@ protocol SettingsInteractorProtocol {
     func updateSettings(image: UIImage, json: [String: Any])
 }
 
-protocol SettingsPresenterProtocol {
+protocol SettingsPresenterProtocol: AnyObject {
     func didReceiveSettings(_ settings: SettingsModel)
     func navigateBack()
     func viewDidLoad()

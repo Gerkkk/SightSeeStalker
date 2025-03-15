@@ -8,6 +8,10 @@
 import Foundation
 
 class ExplorePresenter: ExplorePresenterProtocol {
+    private enum Constants {
+        static let initialQueryString = ""
+        static let initialSearchType = 0
+    }
     
     weak var view: ExploreViewProtocol?
     var interactor: ExploreInteractorProtocol
@@ -20,7 +24,7 @@ class ExplorePresenter: ExplorePresenterProtocol {
     }
     
     func viewDidLoad() {
-        searchWithParams(query: "", searchType: 0)
+        searchWithParams(query: Constants.initialQueryString, searchType: Constants.initialSearchType)
     }
     
     func searchWithParams(query: String, searchType: Int) {
@@ -28,6 +32,14 @@ class ExplorePresenter: ExplorePresenterProtocol {
             switch result {
             case .success(let data):
                 let retArticles = data.articles ?? []
+                if retArticles.count > 0 {
+                    for i in 0...retArticles.count-1 {
+                        if let date = retArticles[i].date {
+                            retArticles[i].date = date - TimeInterval(integerLiteral: 978307200)
+                        }
+                    }
+                }
+                
                 let retPeople = data.people ?? []
                 self?.view?.setResults(articles: retArticles, people: retPeople)
                 self?.view?.reloadData()

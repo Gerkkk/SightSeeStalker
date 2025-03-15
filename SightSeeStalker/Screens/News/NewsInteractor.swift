@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import KeychainSwift
 
 final class NewsInteractor: NewsInteractorProtocol {
-    var presenter: NewsInteractorOutputProtocol?
+    private enum Constants {
+        static let pageSize = 10
+    }
+    
+    weak var presenter: NewsInteractorOutputProtocol?
     var worker: NewsWorkerProtocol = NewsWorker()
     
     var pageNum = 0
@@ -25,9 +30,13 @@ final class NewsInteractor: NewsInteractorProtocol {
         if isLoading == false && allDataLoaded == false {
             isLoading = true
             
+            let kc = KeychainSwift()
+            guard let idStr = kc.get("id") else { return }
+            let id = Int(idStr)
+            
             let parameters: [String: Any] = [
-                "user_id": 0, // TODO: Fix user_id
-                "page_size": 10,
+                "user_id": id,
+                "page_size": Constants.pageSize,
                 "page_num": pageNum + 1
             ]
             

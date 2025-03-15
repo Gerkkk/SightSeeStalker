@@ -8,6 +8,18 @@
 import UIKit
 
 class CustomTabBarController: UITabBarController {
+    private enum Constants {
+        static let cornerRadius = CGFloat(48)
+        static let boarderWidth = CGFloat(1.5)
+        static let bottomOffset = CGFloat(15)
+        static let tabBarHeight = CGFloat(90)
+        static let tabBarWidth = CGFloat(380)
+        
+        static let tabBarBackgroundColor = UIColor.viewColor
+        static let unselectedItemTintColor = UIColor.textSupporting
+        static let tintColor = UIColor.customGreen
+        static let borderColor = UIColor.viewEdging
+    }
     
     private let floatingTabBar = UITabBar()
     
@@ -50,11 +62,11 @@ class CustomTabBarController: UITabBarController {
         floatingTabBar.items = self.tabBar.items
         floatingTabBar.selectedItem = self.tabBar.selectedItem
         
-        floatingTabBar.layer.cornerRadius = 48
-        floatingTabBar.layer.borderWidth = 1.5
-        floatingTabBar.layer.borderColor = UIColor.viewEdging.cgColor
-        floatingTabBar.tintColor = UIColor.customGreen
-        floatingTabBar.unselectedItemTintColor = UIColor.textSupporting
+        floatingTabBar.layer.cornerRadius = Constants.cornerRadius
+        floatingTabBar.layer.borderWidth = Constants.boarderWidth
+        floatingTabBar.layer.borderColor = Constants.borderColor.cgColor
+        floatingTabBar.tintColor = Constants.tintColor
+        floatingTabBar.unselectedItemTintColor = Constants.unselectedItemTintColor
         
         floatingTabBar.layer.masksToBounds = true
         floatingTabBar.clipsToBounds = true
@@ -64,14 +76,14 @@ class CustomTabBarController: UITabBarController {
         floatingTabBar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(floatingTabBar)
         view.bringSubviewToFront(floatingTabBar)
-        floatingTabBar.backgroundColor = UIColor.viewColor
-        floatingTabBar.barTintColor = UIColor.viewColor
+        floatingTabBar.backgroundColor = Constants.tabBarBackgroundColor
+        floatingTabBar.barTintColor = Constants.tabBarBackgroundColor
         floatingTabBar.isTranslucent = false
 
-        floatingTabBar.pinBottom(to: view, 15)
+        floatingTabBar.pinBottom(to: view, Constants.bottomOffset)
         floatingTabBar.pinCenterX(to: view)
-        floatingTabBar.setHeight(90)
-        floatingTabBar.setWidth(380)
+        floatingTabBar.setHeight(Constants.tabBarHeight)
+        floatingTabBar.setWidth(Constants.tabBarWidth)
     }
     
     private func removeSystemTabBar() {
@@ -79,7 +91,6 @@ class CustomTabBarController: UITabBarController {
         self.tabBar.isHidden = true
         self.tabBar.removeFromSuperview()
         
-        self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
         self.tabBar.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 0)
 

@@ -27,7 +27,6 @@ final class NewsRouter: NewsRouterProtocol {
     }
     
     func navigateToArticleDetail(_ article: ArticleModel) {
-        print(1)
         let articleVC = ArticleViewController(article: article)
         viewController?.navigationController?.pushViewController(articleVC, animated: true)
     }

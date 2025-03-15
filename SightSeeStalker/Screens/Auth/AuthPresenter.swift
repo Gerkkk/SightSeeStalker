@@ -8,17 +8,19 @@
 import Foundation
 
 final class AuthPresenter {
-    
+    private enum Constants {
+        static let defaultErrorMessage = "Error"
+    }
     private let interactor: AuthInteractorProtocol = AuthInteractor()
     weak var view: AuthViewController?
     
-    func login(email: String, password: String) {
-        interactor.login(email: email, password: password) { [weak self] success, errorMessage in
+    func login(tag: String, password: String) {
+        interactor.login(tag: tag, password: password) { [weak self] success, errorMessage in
             DispatchQueue.main.async {
                 if success {
                     AuthRouter.showMainScreen()
                 } else {
-                    self?.view?.showError(message: errorMessage ?? "Ошибка")
+                    self?.view?.showError(message: errorMessage?[0] ?? Constants.defaultErrorMessage)
                 }
             }
         }

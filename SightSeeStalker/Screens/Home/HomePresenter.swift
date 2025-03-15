@@ -5,6 +5,8 @@
 //  Created by Danya Polyakov on 02.03.2025.
 //
 
+import Foundation
+
 final class HomePresenter {
     weak var view: HomeViewProtocol?
     var interactor: HomeInteractorProtocol
@@ -28,6 +30,11 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func didFetchUserPosts(articles: [ArticleModel]) {
+        for i in 0...articles.count-1 {
+            if let date = articles[i].date {
+                articles[i].date = date - TimeInterval(integerLiteral: 978307200)
+            }
+        }
         view?.showArticles(articles)
     }
     

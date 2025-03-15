@@ -9,6 +9,15 @@ import UIKit
 import MapKit
 
 class CustomAnnotationView: MKAnnotationView {
+    private enum Constants {
+        static let annotationWidth = CGFloat(75)
+        static let annotationHeight = CGFloat(75)
+        static let dotViewVerticalOffset = CGFloat(34)
+        static let dotViewHorizontalOffset = CGFloat(34)
+        static let dotViewDiameter = CGFloat(7)
+        static let dotLayerCornerRadius = CGFloat(5)
+        static let lineWidth = CGFloat(2)
+    }
     
     private let dotView = UIView()
     private let selectionLayer = CAShapeLayer()
@@ -25,38 +34,47 @@ class CustomAnnotationView: MKAnnotationView {
     }
     
     private func setupView() {
-        frame = CGRect(x: 0, y: 0, width: 75, height: 75)
+        frame = CGRect(x: 0, y: 0, width: Constants.annotationWidth, height: Constants.annotationHeight)
         centerOffset = CGPoint(x: 0, y: 0)
         
-
-        dotView.frame = CGRect(x: 34, y: 34, width: 7, height: 7)
-        dotView.layer.cornerRadius = 5
+        setupDotView()
+        setupSelectionLayer()
+        setupHorizontalLinesLayer()
+        setupGradientLayer()
+    }
+    
+    private func setupDotView() {
+        dotView.frame = CGRect(x: Constants.dotViewHorizontalOffset, y: Constants.dotViewVerticalOffset, width: Constants.dotViewDiameter, height: Constants.dotViewDiameter)
+        dotView.layer.cornerRadius = Constants.dotLayerCornerRadius
         dotView.backgroundColor = UIColor.customGreen
         addSubview(dotView)
-
+    }
+    
+    private func setupSelectionLayer() {
         selectionLayer.fillColor = UIColor.clear.cgColor
         selectionLayer.strokeColor = UIColor.customGreen.cgColor
-        selectionLayer.lineWidth = 2
+        selectionLayer.lineWidth = Constants.lineWidth
         selectionLayer.isHidden = true
         layer.addSublayer(selectionLayer)
-        
+    }
+    
+    private func setupHorizontalLinesLayer() {
         horizontalLinesLayer.strokeColor = UIColor.textMain.cgColor
-        horizontalLinesLayer.lineWidth = 2
+        horizontalLinesLayer.lineWidth = Constants.lineWidth
         horizontalLinesLayer.isHidden = true
         layer.addSublayer(horizontalLinesLayer)
-        
+    }
+    
+    private func setupGradientLayer() {
         gradientLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: 75, height: 75)
-        
-        
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: Constants.annotationWidth, height: Constants.annotationHeight)
     }
     
     func applyGradientToLayer() {
         let gradientMaskLayer = CAShapeLayer()
         gradientMaskLayer.path = horizontalLinesLayer.path
-        
         gradientLayer.mask = gradientMaskLayer
         gradientLayer.frame = bounds
         layer.addSublayer(gradientLayer)
@@ -69,13 +87,12 @@ class CustomAnnotationView: MKAnnotationView {
         let padding: CGFloat = 0
         let rect = bounds.insetBy(dx: -padding, dy: -padding)
         
-        // Основной квадрат
         let squarePath = UIBezierPath(rect: rect)
         selectionLayer.path = squarePath.cgPath
         
         
         let horizontalLinesPath = UIBezierPath()
-        let lineLength: CGFloat = 75
+        let lineLength: CGFloat = Constants.annotationHeight
         
         horizontalLinesPath.move(to: CGPoint(x: rect.midX, y: rect.minY))
         horizontalLinesPath.addLine(to: CGPoint(x: rect.midX, y: rect.minY - lineLength))

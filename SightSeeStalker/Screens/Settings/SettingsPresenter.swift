@@ -8,16 +8,6 @@
 import Foundation
 import UIKit
 
-//final class SettingsPresenter: SettingsPresenterProtocol {
-//    weak var view: SettingsViewProtocol?
-//    var interactor: SettingsInteractorProtocol?
-//    var router: SettingsRouterProtocol?
-//    
-//    func didReceiveSettings(_ settings: SettingsModel) {
-//        view?.updateUI(with: settings)
-//    }
-//}
-
 final class SettingsPresenter: SettingsPresenterProtocol {
     weak var view: SettingsViewProtocol?
     var interactor: SettingsInteractorProtocol

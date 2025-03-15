@@ -11,14 +11,25 @@ import MapKit
 class MapViewController: UIViewController, ToggleButtonsViewDelegate {
     var presenter: MapPresenterProtocol!
     
+    private enum Constants {
+        static let placeHolderText = "Enter text"
+        static let leftButtonText = "Visited"
+        static let rightButtonText = "Planned"
+        static let imageChosen = UIImage(named: "Check")!
+        static let imageLNotChosen = UIImage(named: "Location")!
+        static let imageRNotChosen = UIImage(named: "Location")!
+        static let imagePadding = CGFloat(10)
+        static let mapTopOffset = CGFloat(5)
+    }
+    
     var buttonsMapType: ToggleButtonsView = ToggleButtonsView(
-        titleL: "Visited",
-        imageLChosen: UIImage(named: "Check")!,
-        imageLNotChosen: UIImage(named: "Location")!,
-        titleR: "Planned",
-        imageRChosen: UIImage(named: "Check")!,
-        imageRNotChosen: UIImage(named: "Location")!,
-        imagePadding: 10
+        titleL: Constants.leftButtonText,
+        imageLChosen: Constants.imageChosen,
+        imageLNotChosen: Constants.imageLNotChosen,
+        titleR: Constants.rightButtonText,
+        imageRChosen: Constants.imageChosen,
+        imageRNotChosen: Constants.imageRNotChosen,
+        imagePadding: Constants.imagePadding
     )
     
     private var mapView: MKMapView!
@@ -30,13 +41,24 @@ class MapViewController: UIViewController, ToggleButtonsViewDelegate {
     }
 
     func configureUI() {
+        self.configureButtonsToggle()
+        self.configureMapView()
+        
+        view.bringSubviewToFront(buttonsMapType)
+    
+        presenter.loadSelfArticles()
+    }
+    
+    private func configureButtonsToggle() {
         view.addSubview(buttonsMapType)
         buttonsMapType.translatesAutoresizingMaskIntoConstraints = false
         buttonsMapType.pinCenterX(to: view)
-        buttonsMapType.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 5)
+        buttonsMapType.pinTop(to: view.safeAreaLayoutGuide.topAnchor, Constants.mapTopOffset)
         buttonsMapType.delegate = self
         buttonsMapType.buttonR.layoutIfNeeded()
-        
+    }
+    
+    private func configureMapView() {
         mapView = MKMapView(frame: view.bounds)
         mapView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(mapView)
@@ -48,11 +70,7 @@ class MapViewController: UIViewController, ToggleButtonsViewDelegate {
         mapView.pinRight(to: view.trailingAnchor)
         mapView.pinBottom(to: view.bottomAnchor)
         mapView.delegate = self
-        
         mapView.showsBuildings = false
-        view.bringSubviewToFront(buttonsMapType)
-        
-        presenter.loadSelfArticles()
     }
 
     func didChangeSelectedButton(isLeftButtonSelected: Bool) {

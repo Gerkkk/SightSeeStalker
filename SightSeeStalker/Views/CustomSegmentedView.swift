@@ -14,6 +14,7 @@ final class CustomSegmentedView: UISegmentedControl {
         static let height: CGFloat = CGFloat(32)
         static let backgrCol: UIColor = .clear
         static let textColor = UIColor.iconNotChosen
+        static let tintColor = UIColor.customGreen
     }
     
     init(data: [String], images: [UIImage]) {
@@ -34,11 +35,6 @@ final class CustomSegmentedView: UISegmentedControl {
         self.setHeight(Constants.height)
         self.setWidth(Constants.width * CGFloat(data.count))
         self.backgroundColor = Constants.backgrCol
-        self.selectedSegmentTintColor = UIColor.customGreen
-        self.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.textTertiary as Any,
-            NSAttributedString.Key.foregroundColor: Constants.textColor as Any], for: UIControl.State.selected)
-        
-        self.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.textTertiary as Any,
-            NSAttributedString.Key.foregroundColor: UIColor.customGreen as Any], for: UIControl.State.normal)
+        self.selectedSegmentTintColor = Constants.tintColor
     }
 }

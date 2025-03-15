@@ -7,19 +7,20 @@
 
 import Foundation
 
-class ExploreInteractor: ExploreInteractorProtocol {
-    
-    
+public class ExploreInteractor: ExploreInteractorProtocol {
     weak var presenter: ExplorePresenterProtocol?
     var worker: ExploreWorkerProtocol
     
-    init(worker: ExploreWorkerProtocol) {
+    public init(worker: ExploreWorkerProtocol) {
         self.worker = worker
     }
     
-    func fetchData(query: String, searchType searchtype: Int, completion: @escaping (Result<ExploreDataModel, Error>) -> Void) {
-        worker.fetchSearchResults(query: query, searchType: searchtype) { result in
-            completion(result)
+    public func fetchData(query: String, searchType searchtype: Int, completion: @escaping (Result<ExploreDataModel, Error>) -> Void) {
+        
+        DispatchQueue.global().asyncAfter(deadline: .now()) {[weak self] in
+            self?.worker.fetchSearchResults(query: query, searchType: searchtype) { result in
+                completion(result)
+            }
         }
     }
 }

@@ -20,11 +20,11 @@ protocol ExplorePresenterProtocol: AnyObject {
     func articleSelected(article: ArticleModel)
 }
 
-protocol ExploreInteractorProtocol: AnyObject {
+public protocol ExploreInteractorProtocol: AnyObject {
     func fetchData(query: String, searchType: Int, completion: @escaping (Result<ExploreDataModel, Error>) -> Void)
 }
 
-protocol ExploreWorkerProtocol: AnyObject {
+public protocol ExploreWorkerProtocol: AnyObject {
     func fetchSearchResults(query: String, searchType: Int, completion: @escaping (Result<ExploreDataModel, Error>) -> Void)
 }
 

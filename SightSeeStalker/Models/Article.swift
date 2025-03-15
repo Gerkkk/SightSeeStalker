@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArticleModel: Decodable {
+public class ArticleModel: Decodable {
     var authorID: Int?
     var authorName: String?
     var authorTag: String?
@@ -35,13 +35,13 @@ class ArticleModel: Decodable {
         case images = "images"
     }
     
-    init(authorID: Int? = nil, authorName: String? = nil, authorTag: String? = nil, authorAvatar: String? = nil, title: String? = nil, date: Double? = nil, coordsN: Double? = nil, coordsW: Double? = nil, brief: String? = nil, text: String? = nil, images: [String]? = nil) {
+    public init(authorID: Int? = nil, authorName: String? = nil, authorTag: String? = nil, authorAvatar: String? = nil, title: String? = nil, date: Double? = nil, coordsN: Double? = nil, coordsW: Double? = nil, brief: String? = nil, text: String? = nil, images: [String]? = nil) {
         self.authorID = authorID
         self.authorName = authorName
         self.authorTag = authorTag
         self.authorAvatar = authorAvatar
         self.title = title
-        self.date = Date(timeIntervalSince1970: date!)
+        self.date = Date(timeIntervalSince1970: date ?? 0)
         self.coordsN = coordsN
         self.coordsW = coordsW
         self.brief = brief

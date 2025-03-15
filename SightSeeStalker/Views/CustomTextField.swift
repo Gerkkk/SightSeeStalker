@@ -9,30 +9,6 @@ import UIKit
 
 
 final class CustomTextField: UITextField {
-    var wasChanged: ((Bool) -> Void)?
-    var arrowView = UIImageView(image: UIImage(named: "ArrowRight"))
-    var enterButton = CustomButton(cornerRadius: Constants.buttonCornerRad, backgrCol: Constants.buttonBackgrCol, imageName: Constants.buttonImageName)
-    
-    override func leftViewRect(forBounds: CGRect) -> CGRect {
-        let leftBounds = CGRectMake(forBounds.origin.x + Constants.leftViewXOffset, Constants.leftViewYOffset, Constants.leftViewWidth, Constants.leftViewHeight)
-        return leftBounds
-    }
-    
-    override func rightViewRect(forBounds: CGRect) -> CGRect {
-        let leftBounds = CGRectMake(forBounds.origin.x + Constants.textFieldWigth + Constants.rightPadding, Constants.leftViewYOffset, Constants.leftViewWidth, Constants.leftViewHeight)
-        return leftBounds
-    }
-    
-    override public func textRect(forBounds bounds: CGRect) -> CGRect {
-        let originalRect: CGRect = super.editingRect(forBounds: bounds)
-        return CGRect(x: originalRect.origin.x, y: originalRect.origin.y, width: originalRect.size.width - Constants.leftPadding - Constants.rightPadding, height: originalRect.size.height)
-    }
-    
-    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
-        let originalRect: CGRect = super.editingRect(forBounds: bounds)
-        return CGRect(x: originalRect.origin.x, y: originalRect.origin.y, width: originalRect.size.width - Constants.leftPadding - Constants.rightPadding, height: originalRect.size.height)
-    }
-    
     private enum Constants {
         static let borderWidth: CGFloat = CGFloat(8)
         static let cornerRadius: CGFloat = CGFloat(28)
@@ -55,6 +31,37 @@ final class CustomTextField: UITextField {
         
         static let kbType: UIKeyboardType = UIKeyboardType.webSearch
         static let kbView: UIKeyboardAppearance = UIKeyboardAppearance.dark
+        
+        static let textFieldFont = UIFont.textPrimary
+        static let backgrCol = UIColor.viewColor
+        static let textColor = UIColor.textSupporting
+        static let boarderColor = UIColor.viewEdging
+        
+        static let leftImage = UIImage(named: "ArrowRight")
+    }
+    
+    var wasChanged: ((Bool) -> Void)?
+    var arrowView = UIImageView(image: Constants.leftImage)
+    var enterButton = CustomButton(cornerRadius: Constants.buttonCornerRad, backgrCol: Constants.buttonBackgrCol, imageName: Constants.buttonImageName)
+    
+    override func leftViewRect(forBounds: CGRect) -> CGRect {
+        let leftBounds = CGRectMake(forBounds.origin.x + Constants.leftViewXOffset, Constants.leftViewYOffset, Constants.leftViewWidth, Constants.leftViewHeight)
+        return leftBounds
+    }
+    
+    override func rightViewRect(forBounds: CGRect) -> CGRect {
+        let leftBounds = CGRectMake(forBounds.origin.x + Constants.textFieldWigth + Constants.rightPadding, Constants.leftViewYOffset, Constants.leftViewWidth, Constants.leftViewHeight)
+        return leftBounds
+    }
+    
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+        let originalRect: CGRect = super.editingRect(forBounds: bounds)
+        return CGRect(x: originalRect.origin.x, y: originalRect.origin.y, width: originalRect.size.width - Constants.leftPadding - Constants.rightPadding, height: originalRect.size.height)
+    }
+    
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+        let originalRect: CGRect = super.editingRect(forBounds: bounds)
+        return CGRect(x: originalRect.origin.x, y: originalRect.origin.y, width: originalRect.size.width - Constants.leftPadding - Constants.rightPadding, height: originalRect.size.height)
     }
     
     init(initText: String) {
@@ -69,19 +76,19 @@ final class CustomTextField: UITextField {
     
     private func configureUI(initText: String) {
         translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = UIColor.viewColor
+        self.backgroundColor = Constants.backgrCol
         self.layer.cornerRadius = Constants.cornerRadius
         self.setHeight(Constants.height)
         self.setWidth(Constants.width)
-        self.font = UIFont.textPrimary
-        self.textColor = UIColor.textSupporting
+        self.font = Constants.textFieldFont
+        self.textColor = Constants.textColor
         
         self.attributedPlaceholder = NSAttributedString(
             string: initText,
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.textSupporting]
+            attributes: [NSAttributedString.Key.foregroundColor: Constants.textColor]
         )
         
-        self.layer.borderColor = UIColor.viewEdging.cgColor
+        self.layer.borderColor = Constants.boarderColor.cgColor
         self.layer.borderWidth = Constants.strokeWidth
     
         self.keyboardAppearance = Constants.kbView

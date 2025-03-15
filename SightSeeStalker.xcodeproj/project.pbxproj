@@ -25,6 +25,15 @@
 		C790F84B2D8191ED008C61A8 /* NewArticleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F84A2D8191ED008C61A8 /* NewArticleInteractor.swift */; };
 		C790F84D2D819210008C61A8 /* NewArticleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F84C2D819210008C61A8 /* NewArticleProtocols.swift */; };
 		C790F84F2D81921E008C61A8 /* NewArticleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F84E2D81921E008C61A8 /* NewArticleAssembly.swift */; };
+		C790F8512D84A98B008C61A8 /* NewsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8502D84A98B008C61A8 /* NewsTableViewDataSource.swift */; };
+		C790F8532D84A9CD008C61A8 /* NewsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8522D84A9CD008C61A8 /* NewsTableViewDelegate.swift */; };
+		C790F8562D84D788008C61A8 /* PersonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8552D84D788008C61A8 /* PersonDataSource.swift */; };
+		C790F8582D84D7C3008C61A8 /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8572D84D7C3008C61A8 /* TableViewDelegate.swift */; };
+		C790F85A2D84DD19008C61A8 /* AuthWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8592D84DD19008C61A8 /* AuthWorker.swift */; };
+		C790F85D2D84DD93008C61A8 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F85C2D84DD93008C61A8 /* LoginModel.swift */; };
+		C790F8652D855A64008C61A8 /* SightSeeStalkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F8642D855A64008C61A8 /* SightSeeStalkerTests.swift */; };
+		C790F86C2D857145008C61A8 /* ExploreInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F86B2D857145008C61A8 /* ExploreInteractorTests.swift */; };
+		C790F86E2D857157008C61A8 /* ExploreWorkerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C790F86D2D857157008C61A8 /* ExploreWorkerMock.swift */; };
 		C7FB290E2D3D8CCD0095DF7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB290D2D3D8CCD0095DF7C /* AppDelegate.swift */; };
 		C7FB29102D3D8CCD0095DF7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB290F2D3D8CCD0095DF7C /* SceneDelegate.swift */; };
 		C7FB29122D3D8CCD0095DF7C /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29112D3D8CCD0095DF7C /* ExploreViewController.swift */; };
@@ -34,7 +43,6 @@
 		C7FB29272D3E291E0095DF7C /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29262D3E291E0095DF7C /* UIView+Pin.swift */; };
 		C7FB29292D3E2A490095DF7C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29282D3E2A490095DF7C /* UIColor+.swift */; };
 		C7FB292B2D3E320D0095DF7C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB292A2D3E320D0095DF7C /* Font.swift */; };
-		C7FB292E2D3E39240095DF7C /* Arial Narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7FB292D2D3E39240095DF7C /* Arial Narrow.ttf */; };
 		C7FB29302D3E403B0095DF7C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB292F2D3E403B0095DF7C /* CustomTextField.swift */; };
 		C7FB29322D3E61BE0095DF7C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29312D3E61BE0095DF7C /* CustomButton.swift */; };
 		C7FB29342D3E74290095DF7C /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29332D3E74290095DF7C /* CustomImageView.swift */; };
@@ -43,7 +51,6 @@
 		C7FB293F2D3F7FAE0095DF7C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB293E2D3F7FAE0095DF7C /* MapViewController.swift */; };
 		C7FB29412D3F80280095DF7C /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29402D3F80280095DF7C /* NewsViewController.swift */; };
 		C7FB29432D3F82220095DF7C /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29422D3F82220095DF7C /* CustomTabBarController.swift */; };
-		C7FB29452D3F86D50095DF7C /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29442D3F86D50095DF7C /* UIImage+.swift */; };
 		C7FB29482D3FA1670095DF7C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29472D3FA1670095DF7C /* Person.swift */; };
 		C7FB294A2D3FA3750095DF7C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29492D3FA3750095DF7C /* Article.swift */; };
 		C7FB294C2D3FD43B0095DF7C /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB294B2D3FD43B0095DF7C /* PersonCell.swift */; };
@@ -97,6 +104,16 @@
 		C7FB29C12D74CD080095DF7C /* ExploreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FB29C02D74CD080095DF7C /* ExploreAssembly.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C790F8662D855A64008C61A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7FB29022D3D8CCD0095DF7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7FB29092D3D8CCD0095DF7C;
+			remoteInfo = SightSeeStalker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		C790F8072D76E238008C61A8 /* NewArticleTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleTableDataSource.swift; sourceTree = "<group>"; };
 		C790F8092D76FC28008C61A8 /* ImageFromPhoneCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromPhoneCarouselView.swift; sourceTree = "<group>"; };
@@ -116,6 +133,16 @@
 		C790F84A2D8191ED008C61A8 /* NewArticleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleInteractor.swift; sourceTree = "<group>"; };
 		C790F84C2D819210008C61A8 /* NewArticleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleProtocols.swift; sourceTree = "<group>"; };
 		C790F84E2D81921E008C61A8 /* NewArticleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticleAssembly.swift; sourceTree = "<group>"; };
+		C790F8502D84A98B008C61A8 /* NewsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewDataSource.swift; sourceTree = "<group>"; };
+		C790F8522D84A9CD008C61A8 /* NewsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewDelegate.swift; sourceTree = "<group>"; };
+		C790F8552D84D788008C61A8 /* PersonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataSource.swift; sourceTree = "<group>"; };
+		C790F8572D84D7C3008C61A8 /* TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
+		C790F8592D84DD19008C61A8 /* AuthWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWorker.swift; sourceTree = "<group>"; };
+		C790F85C2D84DD93008C61A8 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		C790F8622D855A64008C61A8 /* SightSeeStalkerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SightSeeStalkerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C790F8642D855A64008C61A8 /* SightSeeStalkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightSeeStalkerTests.swift; sourceTree = "<group>"; };
+		C790F86B2D857145008C61A8 /* ExploreInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractorTests.swift; sourceTree = "<group>"; };
+		C790F86D2D857157008C61A8 /* ExploreWorkerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreWorkerMock.swift; sourceTree = "<group>"; };
 		C7FB290A2D3D8CCD0095DF7C /* SightSeeStalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightSeeStalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FB290D2D3D8CCD0095DF7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7FB290F2D3D8CCD0095DF7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,7 +154,6 @@
 		C7FB29262D3E291E0095DF7C /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 		C7FB29282D3E2A490095DF7C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		C7FB292A2D3E320D0095DF7C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		C7FB292D2D3E39240095DF7C /* Arial Narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Narrow.ttf"; sourceTree = "<group>"; };
 		C7FB292F2D3E403B0095DF7C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		C7FB29312D3E61BE0095DF7C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C7FB29332D3E74290095DF7C /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -136,7 +162,6 @@
 		C7FB293E2D3F7FAE0095DF7C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C7FB29402D3F80280095DF7C /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		C7FB29422D3F82220095DF7C /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		C7FB29442D3F86D50095DF7C /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C7FB29472D3FA1670095DF7C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		C7FB29492D3FA3750095DF7C /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		C7FB294B2D3FD43B0095DF7C /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
@@ -190,6 +215,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C790F85F2D855A64008C61A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7FB29072D3D8CCD0095DF7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,10 +233,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C790F8542D84AA07008C61A8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C790F8522D84A9CD008C61A8 /* NewsTableViewDelegate.swift */,
+				C790F8502D84A98B008C61A8 /* NewsTableViewDataSource.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C790F85B2D84DD7E008C61A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C790F85C2D84DD93008C61A8 /* LoginModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C790F8632D855A64008C61A8 /* SightSeeStalkerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C790F8642D855A64008C61A8 /* SightSeeStalkerTests.swift */,
+				C790F86B2D857145008C61A8 /* ExploreInteractorTests.swift */,
+				C790F86D2D857157008C61A8 /* ExploreWorkerMock.swift */,
+			);
+			path = SightSeeStalkerTests;
+			sourceTree = "<group>";
+		};
 		C7FB29012D3D8CCD0095DF7C = {
 			isa = PBXGroup;
 			children = (
 				C7FB290C2D3D8CCD0095DF7C /* SightSeeStalker */,
+				C790F8632D855A64008C61A8 /* SightSeeStalkerTests */,
 				C7FB290B2D3D8CCD0095DF7C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -213,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				C7FB290A2D3D8CCD0095DF7C /* SightSeeStalker.app */,
+				C790F8622D855A64008C61A8 /* SightSeeStalkerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -258,7 +319,6 @@
 				C7FB29262D3E291E0095DF7C /* UIView+Pin.swift */,
 				C7FB29282D3E2A490095DF7C /* UIColor+.swift */,
 				C7FB292A2D3E320D0095DF7C /* Font.swift */,
-				C7FB29442D3F86D50095DF7C /* UIImage+.swift */,
 				C7FB29712D631BDC0095DF7C /* UIImageView+.swift */,
 			);
 			path = Extensions;
@@ -268,7 +328,6 @@
 			isa = PBXGroup;
 			children = (
 				C7FB296D2D609BAA0095DF7C /* Sora-Regular.ttf */,
-				C7FB292D2D3E39240095DF7C /* Arial Narrow.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -292,6 +351,7 @@
 		C7FB29382D3F7D610095DF7C /* News */ = {
 			isa = PBXGroup;
 			children = (
+				C790F8542D84AA07008C61A8 /* Extensions */,
 				C7FB29402D3F80280095DF7C /* NewsViewController.swift */,
 				C7FB298F2D7486540095DF7C /* NewsProtocols.swift */,
 				C7FB29912D7486600095DF7C /* NewsPresenter.swift */,
@@ -361,11 +421,13 @@
 		C7FB29502D54F9860095DF7C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				C790F85B2D84DD7E008C61A8 /* Models */,
 				C7FB29512D54F9990095DF7C /* AuthState.swift */,
 				C7FB29532D54F9B80095DF7C /* AuthViewController.swift */,
 				C7FB29552D54F9CA0095DF7C /* AuthInteractor.swift */,
 				C7FB29572D54F9E20095DF7C /* AuthPresenter.swift */,
 				C7FB29592D54F9F10095DF7C /* AuthRouter.swift */,
+				C790F8592D84DD19008C61A8 /* AuthWorker.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -388,6 +450,8 @@
 				C7FB29892D7476480095DF7C /* PersonInteractor.swift */,
 				C7FB298B2D7476800095DF7C /* PersonWorker.swift */,
 				C7FB298D2D7476E40095DF7C /* PersonAssembly.swift */,
+				C790F8552D84D788008C61A8 /* PersonDataSource.swift */,
+				C790F8572D84D7C3008C61A8 /* TableViewDelegate.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -451,6 +515,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C790F8612D855A64008C61A8 /* SightSeeStalkerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C790F8682D855A64008C61A8 /* Build configuration list for PBXNativeTarget "SightSeeStalkerTests" */;
+			buildPhases = (
+				C790F85E2D855A64008C61A8 /* Sources */,
+				C790F85F2D855A64008C61A8 /* Frameworks */,
+				C790F8602D855A64008C61A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C790F8672D855A64008C61A8 /* PBXTargetDependency */,
+			);
+			name = SightSeeStalkerTests;
+			productName = SightSeeStalkerTests;
+			productReference = C790F8622D855A64008C61A8 /* SightSeeStalkerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C7FB29092D3D8CCD0095DF7C /* SightSeeStalker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7FB29212D3D8CCE0095DF7C /* Build configuration list for PBXNativeTarget "SightSeeStalker" */;
@@ -481,6 +563,10 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					C790F8612D855A64008C61A8 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = C7FB29092D3D8CCD0095DF7C;
+					};
 					C7FB29092D3D8CCD0095DF7C = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -503,16 +589,23 @@
 			projectRoot = "";
 			targets = (
 				C7FB29092D3D8CCD0095DF7C /* SightSeeStalker */,
+				C790F8612D855A64008C61A8 /* SightSeeStalkerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C790F8602D855A64008C61A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7FB29082D3D8CCD0095DF7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7FB292E2D3E39240095DF7C /* Arial Narrow.ttf in Resources */,
 				C7FB291A2D3D8CCE0095DF7C /* Assets.xcassets in Resources */,
 				C7FB296E2D609BAA0095DF7C /* Sora-Regular.ttf in Resources */,
 				C7FB291D2D3D8CCE0095DF7C /* Base in Resources */,
@@ -522,6 +615,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C790F85E2D855A64008C61A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C790F86C2D857145008C61A8 /* ExploreInteractorTests.swift in Sources */,
+				C790F8652D855A64008C61A8 /* SightSeeStalkerTests.swift in Sources */,
+				C790F86E2D857157008C61A8 /* ExploreWorkerMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7FB29062D3D8CCD0095DF7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -539,15 +642,18 @@
 				C7FB29982D74868A0095DF7C /* NewsRouter.swift in Sources */,
 				C7FB29A02D74AACF0095DF7C /* MapInteractor.swift in Sources */,
 				C7FB29AE2D74B34D0095DF7C /* HomeAssembly.swift in Sources */,
+				C790F8532D84A9CD008C61A8 /* NewsTableViewDelegate.swift in Sources */,
 				C7FB29812D6F2DD60095DF7C /* SettingsViewController.swift in Sources */,
 				C7FB29562D54F9CA0095DF7C /* AuthInteractor.swift in Sources */,
 				C790F8372D817182008C61A8 /* SettingsPresenter.swift in Sources */,
 				C790F8432D8175ED008C61A8 /* SettingsDatePickerDelegate.swift in Sources */,
 				C7FB29BC2D74C2940095DF7C /* ExploreRouter.swift in Sources */,
+				C790F8512D84A98B008C61A8 /* NewsTableViewDataSource.swift in Sources */,
 				C7FB29C12D74CD080095DF7C /* ExploreAssembly.swift in Sources */,
 				C7FB29B02D74B5840095DF7C /* HomeWorker.swift in Sources */,
 				C7FB29272D3E291E0095DF7C /* UIView+Pin.swift in Sources */,
 				C7FB294C2D3FD43B0095DF7C /* PersonCell.swift in Sources */,
+				C790F8562D84D788008C61A8 /* PersonDataSource.swift in Sources */,
 				C7FB29662D58FDAB0095DF7C /* ImageCarouselView.swift in Sources */,
 				C7FB29B42D74C25E0095DF7C /* ExploreProtocols.swift in Sources */,
 				C7FB299C2D74AA9C0095DF7C /* MapProtocols.swift in Sources */,
@@ -565,10 +671,10 @@
 				C790F83B2D81722F008C61A8 /* SettingsWorker.swift in Sources */,
 				C7FB299E2D74AAC40095DF7C /* MapPresenter.swift in Sources */,
 				C7FB29A62D74B28E0095DF7C /* HomeProtocols.swift in Sources */,
+				C790F85A2D84DD19008C61A8 /* AuthWorker.swift in Sources */,
 				C7FB29322D3E61BE0095DF7C /* CustomButton.swift in Sources */,
 				C7FB29BA2D74C27F0095DF7C /* ExplorePresenter.swift in Sources */,
 				C7FB29962D74867E0095DF7C /* NewsInteractor.swift in Sources */,
-				C7FB29452D3F86D50095DF7C /* UIImage+.swift in Sources */,
 				C7FB292B2D3E320D0095DF7C /* Font.swift in Sources */,
 				C7FB290E2D3D8CCD0095DF7C /* AppDelegate.swift in Sources */,
 				C7FB293F2D3F7FAE0095DF7C /* MapViewController.swift in Sources */,
@@ -592,8 +698,10 @@
 				C7FB29292D3E2A490095DF7C /* UIColor+.swift in Sources */,
 				C7FB29A22D74AB0B0095DF7C /* MapWorker.swift in Sources */,
 				C790F84B2D8191ED008C61A8 /* NewArticleInteractor.swift in Sources */,
+				C790F85D2D84DD93008C61A8 /* LoginModel.swift in Sources */,
 				C790F8392D817226008C61A8 /* SettingsRouter.swift in Sources */,
 				C790F82F2D802FBB008C61A8 /* Settings.swift in Sources */,
+				C790F8582D84D7C3008C61A8 /* TableViewDelegate.swift in Sources */,
 				C7FB29942D74866C0095DF7C /* NewsWorker.swift in Sources */,
 				C790F8412D817547008C61A8 /* SettingsTableDelegate.swift in Sources */,
 				C7FB29922D7486600095DF7C /* NewsPresenter.swift in Sources */,
@@ -614,6 +722,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C790F8672D855A64008C61A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7FB29092D3D8CCD0095DF7C /* SightSeeStalker */;
+			targetProxy = C790F8662D855A64008C61A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C7FB291B2D3D8CCE0095DF7C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -626,6 +742,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C790F8692D855A64008C61A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HSE.SightSeeStalkerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SightSeeStalker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SightSeeStalker";
+			};
+			name = Debug;
+		};
+		C790F86A2D855A64008C61A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HSE.SightSeeStalkerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SightSeeStalker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SightSeeStalker";
+			};
+			name = Release;
+		};
 		C7FB291F2D3D8CCE0095DF7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -800,6 +950,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C790F8682D855A64008C61A8 /* Build configuration list for PBXNativeTarget "SightSeeStalkerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C790F8692D855A64008C61A8 /* Debug */,
+				C790F86A2D855A64008C61A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C7FB29052D3D8CCD0095DF7C /* Build configuration list for PBXProject "SightSeeStalker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -13,9 +13,70 @@ protocol PersonViewControllerProtocol: AnyObject {
 }
 
 final class PersonViewController: UIViewController, PersonViewControllerProtocol {
+    private enum Constants {
+        static let backButtonImage = UIImage(named:"ArrowLeft")
+        static let backButtonBackgrColor = UIColor.clear
+        static let backButtonTintColor = UIColor.customGreen
+        static let stackViewBackgrColor = UIColor.clear
+        static let avatarViewRadius = CGFloat(150)
+        static let avatarViewTopOffset = CGFloat(5)
+        static let nameLabelFont = UIFont.textLarge
+        static let nameLabelBackgroundColor = UIColor.clear
+        static let nameLabelTextColor = UIColor.textMain
+        static let tagLabelFont = UIFont.textBig
+        static let tagLabelBackgroundColor = UIColor.clear
+        static let tagLabelTextColor = UIColor.textMain
+        static let statusLabelFont = UIFont.textSecondary
+        static let statusLabelBackgroundColor = UIColor.clear
+        static let statusLabelTextColor = UIColor.textMain
+        static let statusLabelLinesNum = 0
+        static let followersCountLabelFont = UIFont.textPrimary
+        static let followersCountLabelBackgroundColor = UIColor.clear
+        static let followersCountLabelTextColor = UIColor.textMain
+        static let followButtonImage = UIImage(named: "Plus")
+        static let followButtonBackgrColor = UIColor.clear
+        static let followButtonTintColor = UIColor.customGreen
+        static let textLabelBackgrCol = UIColor.clear
+        static let textLabelTextCol = UIColor.textMain
+        static let textLabelFont = UIFont.textPrimary
+        static let likeButtonImage = UIImage(named:"Plus")
+        static let likeButtonBackgrColor = UIColor.clear
+        static let likeButtonTintColor = UIColor.customGreen
+        static let imagesViewWidth = CGFloat(380)
+        static let imagesViewHeight = CGFloat(250)
+        static let backButtonHeight = CGFloat(30)
+        static let backButtonWidth = CGFloat(20)
+        static let backButtonTopOffset = CGFloat(2)
+        static let backButtonLeadingOffset = CGFloat(10)
+        static let textLabelWidth = CGFloat(380)
+        static let textLabelTopOffset = CGFloat(10)
+        static let textLabelNumLines = 0
+        static let scrollViewDelta = CGFloat(70)
+        static let nameLabelWidth = CGFloat(380)
+        static let nameLabelHeight = CGFloat(40)
+        static let nameLabelTopOffset = CGFloat(5)
+        static let tagLabelTopOffset = CGFloat(3)
+        static let vcBackgrCol = UIColor.backgroundCol
+        static let tableCellRowHeight = CGFloat(430)
+        static let tableCellCornerRadius = CGFloat(20)
+        static let buttonFollowHeight = CGFloat(25)
+        static let buttonFollowWidth = CGFloat(25)
+        static let buttonFollowTrailingOffset = CGFloat(10)
+        static let buttonFollowTopOffset = CGFloat(5)
+        static let statusLabelLeadingOffset = CGFloat(5)
+        static let statusLabelTrailingOffset = CGFloat(5)
+        static let statusLabelTopOffset = CGFloat(5)
+        static let defaultTag = ""
+        static let follCountTrailingOffset = CGFloat(5)
+        static let follCountTopOffset = CGFloat(5)
+        static let postsTabelTopOffset = CGFloat(3)
+        static let postsTabelLeadingOffset = CGFloat(17)
+        static let follString = "FOLLOWERS"
+    }
+    
     private let interactor: PersonInteractorProtocol
-    private let router: PersonRouterProtocol
-    private var articles: [ArticleModel] = []
+    let router: PersonRouterProtocol
+    var articles: [ArticleModel] = []
     private let person: PersonModel
 
     init(interactor: PersonInteractorProtocol, person: PersonModel, router: PersonRouterProtocol) {
@@ -30,10 +91,9 @@ final class PersonViewController: UIViewController, PersonViewControllerProtocol
     }
     
     // MARK: - UI Elements
-
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
-        sv.backgroundColor = .clear
+        sv.backgroundColor = Constants.stackViewBackgrColor
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.alwaysBounceHorizontal = false
         sv.clipsToBounds = false
@@ -42,49 +102,49 @@ final class PersonViewController: UIViewController, PersonViewControllerProtocol
 
     private let backButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "ArrowLeft"), for: .normal)
-        button.backgroundColor = .clear
-        button.tintColor = UIColor.customGreen
+        button.setImage(Constants.backButtonImage, for: .normal)
+        button.backgroundColor = Constants.backButtonBackgrColor
+        button.tintColor = Constants.backButtonTintColor
         return button
     }()
 
-    private let avatarView: CustomImageView = CustomImageView(radius: 150, image: nil)
+    private let avatarView: CustomImageView = CustomImageView(radius: Constants.avatarViewRadius, image: nil)
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.textLarge
-        label.textColor = UIColor.textMain
+        label.font = Constants.nameLabelFont
+        label.textColor = Constants.nameLabelTextColor
         return label
     }()
 
     private let tagLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.textBig
-        label.textColor = UIColor.textMain
+        label.font = Constants.tagLabelFont
+        label.textColor = Constants.tagLabelTextColor
         return label
     }()
 
     private let statusLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.textSecondary
-        label.textColor = UIColor.textMain
-        label.numberOfLines = 0
+        label.font = Constants.statusLabelFont
+        label.textColor = Constants.statusLabelTextColor
+        label.numberOfLines = Constants.statusLabelLinesNum
         label.textAlignment = .center
         return label
     }()
 
     private let followersCountLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.textPrimary
-        label.textColor = UIColor.textMain
+        label.font = Constants.followersCountLabelFont
+        label.textColor = Constants.followersCountLabelTextColor
         return label
     }()
 
     private let buttonFollow: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .clear
-        button.tintColor = UIColor.customGreen
-        button.setImage(UIImage(named: "Plus"), for: .normal)
+        button.backgroundColor = Constants.followButtonBackgrColor
+        button.tintColor = Constants.followButtonTintColor
+        button.setImage(Constants.followButtonImage, for: .normal)
         return button
     }()
 
@@ -94,8 +154,8 @@ final class PersonViewController: UIViewController, PersonViewControllerProtocol
         table.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.reuseId)
         table.isScrollEnabled = false
         table.separatorStyle = .none
-        table.rowHeight = 430
-        table.layer.cornerRadius = 20
+        table.rowHeight = Constants.tableCellRowHeight
+        table.layer.cornerRadius = Constants.tableCellCornerRadius
         return table
     }()
 
@@ -123,15 +183,15 @@ final class PersonViewController: UIViewController, PersonViewControllerProtocol
 
         // Back button
         scrollView.addSubview(backButton)
-        backButton.pinLeft(to: scrollView.leadingAnchor, 10)
-        backButton.pinTop(to: scrollView.topAnchor, 2)
-        backButton.setWidth(20)
-        backButton.setHeight(30)
+        backButton.pinLeft(to: scrollView.leadingAnchor, Constants.backButtonLeadingOffset)
+        backButton.pinTop(to: scrollView.topAnchor, Constants.backButtonTopOffset)
+        backButton.setWidth(Constants.backButtonWidth)
+        backButton.setHeight(Constants.backButtonHeight)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
 
         // Avatar
         scrollView.addSubview(avatarView)
-        avatarView.pinTop(to: scrollView.topAnchor, 5)
+        avatarView.pinTop(to: scrollView.topAnchor, Constants.avatarViewTopOffset)
         avatarView.pinCenterX(to: scrollView)
         if let avatarURL = person.avatar, !avatarURL.isEmpty {
             avatarView.loadImage(from: Config.baseURL + avatarURL)
@@ -140,34 +200,34 @@ final class PersonViewController: UIViewController, PersonViewControllerProtocol
         // Name Label
         scrollView.addSubview(nameLabel)
         nameLabel.text = person.name
-        nameLabel.pinTop(to: avatarView.bottomAnchor, 5)
+        nameLabel.pinTop(to: avatarView.bottomAnchor, Constants.nameLabelTopOffset)
         nameLabel.pinCenterX(to: scrollView)
 
         // Tag Label
         scrollView.addSubview(tagLabel)
-        tagLabel.text = "@" + (person.tag ?? "")
-        tagLabel.pinTop(to: nameLabel.bottomAnchor, 3)
+        tagLabel.text = "@" + (person.tag ?? Constants.defaultTag)
+        tagLabel.pinTop(to: nameLabel.bottomAnchor, Constants.tagLabelTopOffset)
         tagLabel.pinCenterX(to: scrollView)
 
         // Status Label
         scrollView.addSubview(statusLabel)
         statusLabel.text = person.status
-        statusLabel.pinTop(to: tagLabel.bottomAnchor, 5)
-        statusLabel.pinLeft(to: view.leadingAnchor, 5)
-        statusLabel.pinRight(to: view.trailingAnchor, 5)
+        statusLabel.pinTop(to: tagLabel.bottomAnchor, Constants.statusLabelTopOffset)
+        statusLabel.pinLeft(to: view.leadingAnchor, Constants.statusLabelLeadingOffset)
+        statusLabel.pinRight(to: view.trailingAnchor, Constants.statusLabelTrailingOffset)
 
         // Follow Button
         scrollView.addSubview(buttonFollow)
-        buttonFollow.pinRight(to: view.trailingAnchor, 10)
-        buttonFollow.pinTop(to: statusLabel.bottomAnchor, 5)
-        buttonFollow.setHeight(25)
-        buttonFollow.setWidth(25)
+        buttonFollow.pinRight(to: view.trailingAnchor, Constants.buttonFollowTrailingOffset)
+        buttonFollow.pinTop(to: statusLabel.bottomAnchor, Constants.buttonFollowTopOffset)
+        buttonFollow.setHeight(Constants.buttonFollowHeight)
+        buttonFollow.setWidth(Constants.buttonFollowWidth)
 
         // Followers Count Label
         scrollView.addSubview(followersCountLabel)
-        followersCountLabel.text = "\(person.followersNum ?? 0) FOLLOWERS"
-        followersCountLabel.pinRight(to: buttonFollow.leadingAnchor, 5)
-        followersCountLabel.pinTop(to: statusLabel.bottomAnchor, 5)
+        followersCountLabel.text = "\(person.followersNum ?? 0) " + Constants.follString
+        followersCountLabel.pinRight(to: buttonFollow.leadingAnchor, Constants.follCountTrailingOffset)
+        followersCountLabel.pinTop(to: statusLabel.bottomAnchor, Constants.follCountTopOffset)
 
         // Posts Table
         scrollView.addSubview(postsTable)
@@ -175,15 +235,15 @@ final class PersonViewController: UIViewController, PersonViewControllerProtocol
         postsTable.delegate = self
         postsTable.translatesAutoresizingMaskIntoConstraints = false
         
-        postsTable.pinTop(to: followersCountLabel.bottomAnchor, 3)
-        postsTable.pinLeft(to: view.leadingAnchor, 17)
+        postsTable.pinTop(to: followersCountLabel.bottomAnchor, Constants.postsTabelTopOffset)
+        postsTable.pinLeft(to: view.leadingAnchor, Constants.postsTabelLeadingOffset)
         postsTable.pinRight(to: view.trailingAnchor)
         postsTable.pinBottom(to: view.bottomAnchor)
     }
 
     private func updateScrollViewContentSize() {
         let tableHeight = postsTable.contentSize.height
-        let totalHeight = followersCountLabel.frame.maxY + tableHeight + 70
+        let totalHeight = followersCountLabel.frame.maxY + tableHeight + Constants.scrollViewDelta
 
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: totalHeight)
     }
@@ -202,25 +262,5 @@ final class PersonViewController: UIViewController, PersonViewControllerProtocol
     // MARK: - Actions
     @objc private func backButtonTapped() {
       navigationController?.popViewController(animated: true)
-    }
-}
-
-extension PersonViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCell.reuseId, for: indexPath)
-        guard let articleCell = cell as? ArticleCell else { return cell }
-        articleCell.configure(with: articles[indexPath.row])
-        return articleCell
-    }
-}
-
-extension PersonViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        router.navigateToArticle(article: articles[indexPath.row])
     }
 }

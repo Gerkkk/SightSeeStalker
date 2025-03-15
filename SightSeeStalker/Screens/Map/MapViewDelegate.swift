@@ -31,7 +31,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect annotationView: MKAnnotationView) {
         if let customAnnotationView = annotationView as? CustomAnnotationView {
             customAnnotationView.isSelected = true
-            customAnnotationView.layoutSubviews() // Принудительная перерисовка
+            customAnnotationView.layoutSubviews()
         }
     }
     

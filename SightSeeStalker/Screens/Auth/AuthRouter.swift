@@ -18,8 +18,13 @@ final class AuthRouter {
     }
     
     static func showMainScreen() {
-        guard let window = UIApplication.shared.windows.first else { return }
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first else {
+            return
+        }
+
         let navController = CustomTabBarController()
+        
         window.rootViewController = navController
         window.makeKeyAndVisible()
     }

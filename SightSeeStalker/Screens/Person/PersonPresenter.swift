@@ -16,6 +16,11 @@ final class PersonPresenter: PersonPresenterProtocol {
     weak var viewController: PersonViewControllerProtocol?
 
     func presentUserPosts(articles: [ArticleModel]) {
+        for i in 0...articles.count-1 {
+            if let date = articles[i].date {
+                articles[i].date = date - TimeInterval(integerLiteral: 978307200)
+            }
+        }
         viewController?.displayUserPosts(articles: articles)
     }
 

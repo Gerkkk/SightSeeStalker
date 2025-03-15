@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import KeychainSwift
 
 extension SettingsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -182,10 +183,12 @@ extension SettingsViewController: UITableViewDataSource {
         return cell
     }
     
-    //TODO: replace author id, maybe guard let
     @objc func saveButtonTapped() {
-        //TODO: Replace id
-        presenter.updateSettings(image: ((self.image ?? UIImage(named: "DefaultAvatar"))!), json: ["id": 0, "name": self.settingsModel.name ?? "", "tag": self.settingsModel.tag as Any, "status": self.settingsModel.status as Any])
+        let kc = KeychainSwift()
+        guard let idStr = kc.get("id") else { return }
+        let id = Int(idStr)
+        
+        presenter.updateSettings(image: ((self.image ?? UIImage(named: "DefaultAvatar"))!), json: ["id": id, "name": self.settingsModel.name ?? "", "tag": self.settingsModel.tag as Any, "status": self.settingsModel.status as Any])
         navigationController?.popViewController(animated: true)
     }
 }

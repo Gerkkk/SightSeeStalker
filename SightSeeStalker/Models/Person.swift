@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonModel: Decodable {
+public class PersonModel: Decodable {
     var id: Int?
     var name: String?
     var tag: String?
@@ -16,7 +16,7 @@ class PersonModel: Decodable {
     var followersNum: Int?
     var avatar: String?
     
-    init (id: Int, name: String, tag: String, status: String, follows: [Int]?, followersNum: Int, avatar: UIImage?) {
+    public init (id: Int, name: String, tag: String, status: String, follows: [Int]?, followersNum: Int, avatar: UIImage?) {
         self.id = id
         self.name = name
         self.tag = tag

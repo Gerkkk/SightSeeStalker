@@ -7,16 +7,21 @@
 
 import Foundation
 import UIKit
+import KeychainSwift
 
 
 final class SettingsInteractor: SettingsInteractorProtocol {
-    var presenter: SettingsPresenterProtocol?
+    weak var presenter: SettingsPresenterProtocol?
     private let worker = SettingsWorker()
     
     func fetchSettings() {
+        let kc = KeychainSwift()
+        guard let idStr = kc.get("id") else { return }
+        let id = Int(idStr)!
+        
         Task {
             do {
-                let settings = try await worker.getUserSettings(id: 0)
+                let settings = try await worker.getUserSettings(id: id)
                 
                 DispatchQueue.main.async {[weak self] in
                     self?.presenter?.didReceiveSettings(settings)

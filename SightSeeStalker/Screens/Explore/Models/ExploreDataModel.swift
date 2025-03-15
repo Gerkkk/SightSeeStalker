@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct ExploreDataModel: Decodable {
-    var people: [PersonModel]?
-    var articles: [ArticleModel]?
+public struct ExploreDataModel: Decodable {
+    public var people: [PersonModel]?
+    public var articles: [ArticleModel]?
+    
+    public init(people: [PersonModel]?, articles: [ArticleModel]?) {
+        self.people = people
+        self.articles = articles
+    }
 }

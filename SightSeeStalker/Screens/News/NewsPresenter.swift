@@ -28,6 +28,12 @@ final class NewsPresenter: NewsPresenterProtocol {
 // MARK: - NewsInteractorOutputProtocol
 extension NewsPresenter: NewsInteractorOutputProtocol {
     func newsFetched(_ articles: [ArticleModel]) {
+        for i in 0...articles.count-1 {
+            if let date = articles[i].date {
+                articles[i].date = date - TimeInterval(integerLiteral: 978307200)
+            }
+        }
+        
         view?.showNews(articles)
     }
     

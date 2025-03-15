@@ -17,7 +17,6 @@ final class NewArticleAssembly {
         let presenter = NewArticlePresenter(view: view, interactor: interactor, router: router)
         
         view.presenter = presenter
-//        interactor.presenter = presenter
         router.viewController = view
         
         return view

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import KeychainSwift
 
 class ExploreWorker: ExploreWorkerProtocol {
     
@@ -14,8 +15,12 @@ class ExploreWorker: ExploreWorkerProtocol {
             return
         }
         
+        let kc = KeychainSwift()
+        guard let idStr = kc.get("id") else { return }
+        let id = Int(idStr)
+        
         let parameters: [String: Any] = [
-            "user_id": 0, // Fix this later
+            "user_id": id,
             "search_field_string": query,
             "searching_type": searchtype
         ]

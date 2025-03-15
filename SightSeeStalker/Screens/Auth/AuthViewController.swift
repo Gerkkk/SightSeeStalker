@@ -86,8 +86,8 @@ final class AuthViewController: UIViewController {
     }
     
     @objc private func loginTapped() {
-        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-        presenter.login(email: email, password: password)
+        guard let tag = emailTextField.text, let password = passwordTextField.text else { return }
+        presenter.login(tag: tag, password: password)
     }
     
     func showError(message: String) {
