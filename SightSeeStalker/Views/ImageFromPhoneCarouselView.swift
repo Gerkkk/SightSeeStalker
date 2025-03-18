@@ -48,7 +48,6 @@ class ImageFromPhoneCarouselView: UIView, UIScrollViewDelegate, UIImagePickerCon
     }
     
     private func setupImages() {
-        print("LOL")
         for (index, image) in images.enumerated() {
             let imageView = UIImageView()
             imageView.image = image

@@ -41,11 +41,11 @@ final class ArticleCell: UITableViewCell {
     }
     
     func configure(with article: ArticleModel) {
-        nameView.text = article.authorName!
+        nameView.text = article.authorName ?? ""
         nameView.textColor = UIColor.textMain
         nameView.font = UIFont.textPrimary
         
-        tagView.text = "@" + article.authorTag!
+        tagView.text = "@" + (article.authorTag ?? "")
         tagView.textColor = UIColor.textSupporting
         tagView.font = UIFont.textTertiary
 
@@ -60,15 +60,18 @@ final class ArticleCell: UITableViewCell {
             }
         }
         
-        articleNameView.text = article.title!
+        articleNameView.text = article.title ?? ""
         articleNameView.textColor = UIColor.textMain
         articleNameView.font = UIFont.textPrimary
         
-        dateView.text = article.date!.formatted(date: .long, time: .omitted)
+        if let date = article.date {
+            dateView.text = date.formatted(date: .long, time: .omitted)
+        }
+        
         dateView.textColor = UIColor.textMain
         dateView.font = UIFont.textTertiary
         
-        briefView.text = article.brief!
+        briefView.text = article.brief ?? ""
         briefView.textColor = UIColor.textMain
         briefView.font = UIFont.textTertiary
         briefView.numberOfLines = 0

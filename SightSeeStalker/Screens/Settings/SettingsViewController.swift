@@ -30,7 +30,7 @@ final class SettingsViewController: UIViewController, SettingsViewProtocol {
         static let defaultSettingModel = SettingsModel(id: -1, name: "", tag: "", status: "", avatar: nil)
     }
     
-    var presenter: SettingsPresenterProtocol!
+    var presenter: SettingsPresenterProtocol?
     var settingsModel: SettingsModel = Constants.defaultSettingModel
     var image: UIImage?
     
@@ -65,7 +65,7 @@ final class SettingsViewController: UIViewController, SettingsViewProtocol {
         super.viewDidLoad()
         view.backgroundColor = UIColor.backgroundCol
         setupUI()
-        presenter.viewDidLoad()
+        presenter?.viewDidLoad()
     }
     
     private func setupUI() {
@@ -116,7 +116,7 @@ final class SettingsViewController: UIViewController, SettingsViewProtocol {
     }
     
     @objc private func backButtonTapped() {
-        presenter.navigateBack()
+        presenter?.navigateBack()
     }
     
     func updateSettings(with model: SettingsModel) {

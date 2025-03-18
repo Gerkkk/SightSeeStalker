@@ -26,30 +26,42 @@ final class SettingsWorker {
     }
     
     func changeSettings(image: UIImage, json: [String: Any]) {
-        let url = URL(string: Config.baseURL + "/user-actions/change-settings")!
+        guard let url = URL(string: Config.baseURL + "/user-actions/change-settings") else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         let boundary = "Boundary-\(UUID().uuidString)"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         var body = Data()
         if let jsonData = try? JSONSerialization.data(withJSONObject: json) {
-            body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"json\"; filename=\"settings.json\"\r\n".data(using: .utf8)!)
-            body.append("Content-Type: application/json\r\n\r\n".data(using: .utf8)!)
+            guard let bound = "--\(boundary)\r\n".data(using: .utf8) else {return}
+            body.append(bound)
+            
+            guard let contDisp = "Content-Disposition: form-data; name=\"json\"; filename=\"settings.json\"\r\n".data(using: .utf8) else {return}
+            body.append(contDisp)
+            
+            guard let contType = "Content-Type: application/json\r\n\r\n".data(using: .utf8) else {return}
+            body.append(contType)
             body.append(jsonData)
-            body.append("\r\n".data(using: .utf8)!)
+            guard let r = "\r\n".data(using: .utf8) else {return}
+            body.append(r)
         }
         if let imageData = image.jpegData(compressionQuality: 0.8) {
-            body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"avatar\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
-            body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
+            guard let a = "--\(boundary)\r\n".data(using: .utf8) else {return}
+            body.append(a)
+            guard let b = "Content-Disposition: form-data; name=\"avatar\"; filename=\"image.jpg\"\r\n".data(using: .utf8) else {return}
+            body.append(b)
+            
+            guard let ct = "Content-Type: image/jpeg\r\n\r\n".data(using: .utf8) else {return}
+            body.append(ct)
             body.append(imageData)
-            body.append("\r\n".data(using: .utf8)!)
+            guard let r = "\r\n".data(using: .utf8) else {return}
+            body.append(r)
         }
-        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        guard let y = "--\(boundary)--\r\n".data(using: .utf8) else {return}
+        body.append(y)
         request.httpBody = body
         URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error { print("Ошибка: \(error.localizedDescription)") }
+            if let error = error { print("Error: \(error.localizedDescription)") }
         }.resume()
     }
 }

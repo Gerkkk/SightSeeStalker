@@ -17,7 +17,7 @@ final class SettingsInteractor: SettingsInteractorProtocol {
     func fetchSettings() {
         let kc = KeychainSwift()
         guard let idStr = kc.get("id") else { return }
-        let id = Int(idStr)!
+        guard let id = Int(idStr) else {return}
         
         Task {
             do {
@@ -27,7 +27,7 @@ final class SettingsInteractor: SettingsInteractorProtocol {
                     self?.presenter?.didReceiveSettings(settings)
                 }
             } catch {
-                print("Ошибка: \(error)")
+                print("Error: \(error)")
             }
         }
     }

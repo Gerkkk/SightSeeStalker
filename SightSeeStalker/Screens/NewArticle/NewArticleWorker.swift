@@ -23,24 +23,33 @@ final class NewArticleWorker: NewArticleWorkerProtocol {
         var body = Data()
 
         if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []) {
-            body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"json\"; filename=\"article.json\"\r\n".data(using: .utf8)!)
-            body.append("Content-Type: application/json\r\n\r\n".data(using: .utf8)!)
+            guard let boundData = "--\(boundary)\r\n".data(using: .utf8) else {return}
+            body.append(boundData)
+            guard let contDispos = "Content-Disposition: form-data; name=\"json\"; filename=\"article.json\"\r\n".data(using: .utf8) else {return}
+            body.append(contDispos)
+            guard let contType = "Content-Type: application/json\r\n\r\n".data(using: .utf8) else {return}
+            body.append(contType)
             body.append(jsonData)
-            body.append("\r\n".data(using: .utf8)!)
+            guard let ending = "\r\n".data(using: .utf8) else {return}
+            body.append(ending)
         }
 
         for (index, image) in images.enumerated() {
             if let imageData = image.jpegData(compressionQuality: 0.8) {
-                body.append("--\(boundary)\r\n".data(using: .utf8)!)
-                body.append("Content-Disposition: form-data; name=\"images\"; filename=\"image\(index).jpg\"\r\n".data(using: .utf8)!)
-                body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
+                guard let bound = "--\(boundary)\r\n".data(using: .utf8) else {return}
+                body.append(bound)
+                guard let contDisp = "Content-Disposition: form-data; name=\"images\"; filename=\"image\(index).jpg\"\r\n".data(using: .utf8) else {return}
+                body.append(contDisp)
+                guard let contType = "Content-Type: image/jpeg\r\n\r\n".data(using: .utf8) else {return}
+                body.append(contType )
                 body.append(imageData)
-                body.append("\r\n".data(using: .utf8)!)
+                guard let rn = "\r\n".data(using: .utf8) else {return}
+                body.append(rn)
             }
         }
-
-        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        
+        guard let ending = "--\(boundary)--\r\n".data(using: .utf8) else {return}
+        body.append(ending)
         request.httpBody = body
 
         URLSession.shared.dataTask(with: request).resume()

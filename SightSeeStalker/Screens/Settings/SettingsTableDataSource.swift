@@ -89,7 +89,6 @@ extension SettingsViewController: UITableViewDataSource {
             valueLabel.font = UIFont.textBig
             valueLabel.textColor = UIColor.textMain
             valueLabel.text = settingsModel.name ?? ""
-            print("Value: " + valueLabel.text!)
             valueLabel.setWidth(300)
             valueLabel.setHeight(30)
             
@@ -188,7 +187,9 @@ extension SettingsViewController: UITableViewDataSource {
         guard let idStr = kc.get("id") else { return }
         let id = Int(idStr)
         
-        presenter.updateSettings(image: ((self.image ?? UIImage(named: "DefaultAvatar"))!), json: ["id": id, "name": self.settingsModel.name ?? "", "tag": self.settingsModel.tag as Any, "status": self.settingsModel.status as Any])
+        guard let ava = (self.image ?? UIImage(named: "DefaultAvatar")) else {return}
+        
+        presenter?.updateSettings(image: ava, json: ["id": id, "name": self.settingsModel.name ?? "", "tag": self.settingsModel.tag as Any, "status": self.settingsModel.status as Any])
         navigationController?.popViewController(animated: true)
     }
 }

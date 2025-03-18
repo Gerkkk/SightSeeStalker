@@ -38,16 +38,16 @@ final class PersonCell: UITableViewCell {
     }
     
     func configure(with person: PersonModel) {
-        nameView.text = person.name!
+        nameView.text = person.name ?? ""
         nameView.textColor = UIColor.textMain
         nameView.font = UIFont.textPrimary
         
-        tagView.text = "@" + person.tag!
+        tagView.text = "@" + (person.tag ?? "")
         tagView.textColor = UIColor.textSupporting
         tagView.font = UIFont.textTertiary
         
-        if person.avatar! != "" {
-            avatarView.loadImage(from: "http://127.0.0.1:8000" + person.avatar!)
+        if let ava = person.avatar, ava != "" {
+            avatarView.loadImage(from: "http://127.0.0.1:8000" + ava)
         }
     }
     

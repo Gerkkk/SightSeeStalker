@@ -143,13 +143,14 @@ extension NewArticleViewController: UITableViewDataSource {
     @objc func publishButtonTapped() {
         let date = Int(self.datePicker?.date.timeIntervalSince1970 ?? 0)
         let coordsN = Double(self.coordNField?.text ?? "0")
-        let coordsW = Double(self.coordWField!.text ?? "0")
+        let coordsW = Double(self.coordWField?.text ?? "0")
         
         let kc = KeychainSwift()
         guard let idStr = kc.get("id") else { return }
         let id = Int(idStr)
         
-        var jsonInfo: [String: Any] = ["author_id": id, "title": self.nameField?.text ?? "", "date": date, "coords_n": coordsN as Any, "coords_w": coordsW, "brief": self.briefView?.text ?? "" as Any, "text": self.textView!.text ?? ""]
+        guard let textView = self.textView else {return}
+        var jsonInfo: [String: Any] = ["author_id": id, "title": self.nameField?.text ?? "", "date": date, "coords_n": coordsN as Any, "coords_w": coordsW, "brief": self.briefView?.text ?? "" as Any, "text": textView.text ?? ""]
         self.presenter?.publishArticle(images: imageCarousel?.images ?? [], json: jsonInfo)
 //        self.uploadImagesWithJSON(images: imageCarousel?.images ?? [], json: jsonInfo)
         navigationController?.popViewController(animated: true)

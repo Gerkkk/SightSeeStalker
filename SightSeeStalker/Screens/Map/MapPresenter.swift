@@ -9,14 +9,14 @@ import MapKit
 
 class MapPresenter: MapPresenterProtocol {
     weak var view: MapViewController?
-    var interactor: MapInteractorProtocol!
+    var interactor: MapInteractorProtocol?
     
     func loadSelfArticles() {
-        interactor.fetchSelfArticles()
+        interactor?.fetchSelfArticles()
     }
     
     func loadLiked() {
-        interactor.fetchLikedArticles()
+        interactor?.fetchLikedArticles()
     }
     
     func handleFetchedAnnotations(_ annotations: [MKAnnotation]) {

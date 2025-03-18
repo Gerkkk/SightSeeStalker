@@ -29,7 +29,7 @@ final class NewArticleViewController: UIViewController, NewArticleViewProtocol {
         static let scrollViewDelta = CGFloat(70)
     }
     
-    var presenter: NewArticlePresenterProtocol!
+    var presenter: NewArticlePresenterProtocol?
     
     public weak var imageCarousel: ImageFromPhoneCarouselView?
     public weak var nameField: UITextField?
@@ -110,7 +110,7 @@ final class NewArticleViewController: UIViewController, NewArticleViewProtocol {
     }
     
     @objc private func backButtonTapped() {
-        presenter.backButtonTapped()
+        presenter?.backButtonTapped()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

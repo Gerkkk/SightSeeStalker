@@ -11,7 +11,7 @@ import KeychainSwift
 final class HomeAssembly {
     static func build() -> UIViewController {
         let kc = KeychainSwift()
-        let idStr = kc.get("id")!
+        guard let idStr = kc.get("id")!
         let id = Int(idStr)!
         
         let view = HomeViewController()

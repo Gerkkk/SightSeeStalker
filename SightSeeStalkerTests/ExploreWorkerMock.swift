@@ -12,6 +12,7 @@ import UIKit
 final class ExploreWorkerMock: ExploreWorkerProtocol {
     func fetchSearchResults(query: String, searchType: Int, completion: @escaping (Result<SightSeeStalker.ExploreDataModel, any Error>) -> Void) {
         
+        
         if searchType == 0 {
             let mockData = ExploreDataModel(people: [PersonModel(id: 9, name: "Ivan", tag: "vanya", status: "", follows: nil, followersNum: 10, avatar: nil)], articles: nil)
             completion(.success(mockData))
@@ -20,6 +21,4 @@ final class ExploreWorkerMock: ExploreWorkerProtocol {
             completion(.success(mockData))
         }
     }
-    
-    
 }

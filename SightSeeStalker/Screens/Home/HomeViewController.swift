@@ -76,7 +76,7 @@ final class HomeViewController: UIViewController {
     }
     
     private var articles: [ArticleModel] = []
-    var presenter: HomePresenterProtocol!
+    var presenter: HomePresenterProtocol?
     
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -162,7 +162,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.backgroundCol
         setupUI()
-        presenter.viewDidLoad()
+        presenter?.viewDidLoad()
     }
     
     private func setupUI() {
@@ -238,11 +238,16 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func newArticleButtonTapped() {
-        presenter.newArticleButtonTapped()
+        presenter?.newArticleButtonTapped()
     }
     
     @objc func settingsButtonTapped() {
-        presenter.settingsButtonTapped()
+        presenter?.settingsButtonTapped()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewDidLoad()
     }
 }
 
@@ -285,6 +290,6 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        presenter.didSelectArticle(article: articles[indexPath.row])
+        presenter?.didSelectArticle(article: articles[indexPath.row])
     }
 }

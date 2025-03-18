@@ -22,7 +22,6 @@ class CustomAnnotationView: MKAnnotationView {
     private let dotView = UIView()
     private let selectionLayer = CAShapeLayer()
     private let horizontalLinesLayer = CAShapeLayer()
-    private let gradientLayer = CAGradientLayer()
 
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
@@ -40,7 +39,6 @@ class CustomAnnotationView: MKAnnotationView {
         setupDotView()
         setupSelectionLayer()
         setupHorizontalLinesLayer()
-        setupGradientLayer()
     }
     
     private func setupDotView() {
@@ -63,21 +61,6 @@ class CustomAnnotationView: MKAnnotationView {
         horizontalLinesLayer.lineWidth = Constants.lineWidth
         horizontalLinesLayer.isHidden = true
         layer.addSublayer(horizontalLinesLayer)
-    }
-    
-    private func setupGradientLayer() {
-        gradientLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: Constants.annotationWidth, height: Constants.annotationHeight)
-    }
-    
-    func applyGradientToLayer() {
-        let gradientMaskLayer = CAShapeLayer()
-        gradientMaskLayer.path = horizontalLinesLayer.path
-        gradientLayer.mask = gradientMaskLayer
-        gradientLayer.frame = bounds
-        layer.addSublayer(gradientLayer)
     }
 
     
@@ -108,7 +91,6 @@ class CustomAnnotationView: MKAnnotationView {
         horizontalLinesPath.addLine(to: CGPoint(x: rect.maxX + lineLength, y: rect.midY))
         horizontalLinesLayer.path = horizontalLinesPath.cgPath
         
-        applyGradientToLayer()
     }
     
     override var isSelected: Bool {
@@ -116,7 +98,6 @@ class CustomAnnotationView: MKAnnotationView {
             
             selectionLayer.isHidden = !isSelected
             horizontalLinesLayer.isHidden = !isSelected
-            gradientLayer.isHidden = !isSelected
         }
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController, ToggleButtonsViewDelegate {
-    var presenter: MapPresenterProtocol!
+    var presenter: MapPresenterProtocol?
     
     private enum Constants {
         static let placeHolderText = "Enter text"
@@ -46,7 +46,7 @@ class MapViewController: UIViewController, ToggleButtonsViewDelegate {
         
         view.bringSubviewToFront(buttonsMapType)
     
-        presenter.loadSelfArticles()
+        presenter?.loadSelfArticles()
     }
     
     private func configureButtonsToggle() {
@@ -76,14 +76,24 @@ class MapViewController: UIViewController, ToggleButtonsViewDelegate {
     func didChangeSelectedButton(isLeftButtonSelected: Bool) {
         mapView.removeAnnotations(mapView.annotations)
         if isLeftButtonSelected {
-            presenter.loadSelfArticles()
+            presenter?.loadSelfArticles()
         } else {
-            presenter.loadLiked()
+            presenter?.loadLiked()
         }
     }
     
     func showAnnotations(_ annotations: [MKAnnotation]) {
         mapView.addAnnotations(annotations)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mapView.removeAnnotations(mapView.annotations)
+        if buttonsMapType.isLeftButtonSelected {
+            presenter?.loadSelfArticles()
+        } else {
+            presenter?.loadLiked()
+        }
     }
 
     func showError(_ error: Error) {
